@@ -7,8 +7,8 @@ function keyPressed(){
     devTools.showDevTools();
   }
 
-  if(keyCode === 73){
-    game.player.inv.showInventory();
+  if(keyCode === 73 || keyCode === 27){
+    game.player.inv.showInventory(keyCode);
   }
 
   if(keyCode === 82 && game.player.currentWeapon.bulletsinMag < game.player.currentWeapon.magSize){

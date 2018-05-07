@@ -45,8 +45,10 @@ function Weapon(name, fireRate, precision, damage, knockback, fireMode, bulletsP
 }
 
 this.startReload = function(){
-  this.timeFromLastReload = 0;
-  this.reloading = true;
+  if(!this.reloading){
+    this.timeFromLastReload = 0;
+    this.reloading = true;
+  }  
 }
 
 this.reload = function(){

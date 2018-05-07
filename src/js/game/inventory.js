@@ -2,7 +2,6 @@ function Inventory(){
   this.items = [];
   this.weaponSlots = [];
   this.hatSlot = -1;
-  this.skillSlots = [];
 
   this.selectedItem = 0;
   this.selectedWeaponSlot = 0;
@@ -21,7 +20,9 @@ function Inventory(){
     for (var i = 0; i < this.items.length; i++) {
       document.getElementById("item"+i).className = "";
     }
-    document.getElementById(id.id).className = "active";
+    if(document.getElementById(id.id).className != "grid-item"){
+      document.getElementById(id.id).className = "active";
+    }
     this.updateItemInfo();
   }
 
@@ -34,19 +35,15 @@ function Inventory(){
     game.player.hat = hat;
   }
 
-  this.equipSkill = function(skill){
-    this.skillSlots.push(weapon);
-  }
-
   this.selectWeapon = function(weaponSlot){
     game.player.currentWeapon = this.weaponSlots[weaponSlot];
     game.player.timeFromLastShot = 0;
     game.player.inv.selectedWeaponSlot = weaponSlot;
   }
 
-  this.showInventory = function(){
+  this.showInventory = function(keycode){
     var inv = document.getElementById('inventory');
-    if(!this.showing){
+    if(!this.showing && keyCode != 27){
       inv.style.display = "inline";
       canvas.className = "inventoryBgFilter";
       this.showing = true;
@@ -136,7 +133,22 @@ function Inventory(){
             game.player.inv.equipHat(game.player.inv.selectedItem);
           }
         game.player.inv.updateItemInfo();
+        game.player.inv.updateEquipmentSlots();
         })
     }
+  }
+
+  this.updateEquipmentSlots = function(){
+    var hatSlot = "";
+    hatSlot +=
+    "<p>Vanity</p>"
+    if(this.hatSlot != -1){
+      hatSlot += "<img src='" + this.selectedItem.img.src + "'>"
+      document.getElementById("skin").setAttribute("onclick", "game.player.inv.selectItem(game.player.inv.hatSlot, skin)");
+    }
+    else{
+      document.getElementById("skin").setAttribute("onclick", "");
+    }
+    document.getElementById('skin').innerHTML = hatSlot;
   }
 }
