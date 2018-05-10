@@ -11,27 +11,18 @@ function Player(x, y) {
     this.newHealth = this.health;
 
     this.inv = new Inventory();
-    this.inv.addItem(weapons["AssaultRifle"]);
-    this.inv.addItem(weapons["Pistol"]);
-    this.inv.addItem(weapons["Shotgun"]);
-    this.inv.addItem(weapons["Sniper"]);
-    this.inv.addItem(weapons["Minigun"]);
+
+    for(key in weapons){
+      this.inv.addItem(weapons[key]);
+    }
 
     for(key in hats){
       this.inv.addItem(hats[key]);
     }
 
-    this.inv.equipWeapon(weapons["AssaultRifle"]);
-    this.inv.equipWeapon(weapons["Pistol"]);
-    this.inv.equipWeapon(weapons["Shotgun"]);
-    this.inv.equipWeapon(weapons["Sniper"]);
-    this.inv.equipWeapon(weapons["Minigun"]);
-
-    this.inv.selectItem(this.inv.items[0], item0);
-
-    this.currentWeapon = this.inv.weaponSlots[0];
-
-    this.timeFromLastShot = this.currentWeapon.fireRate;
+    this.inv.equipMainWeapon(this.inv.items[0]);
+    this.currentWeapon = this.inv.mainWeaponSlot;
+    this.timeFromLastShot = 0;
 
     this.dodgeDelay = 120;
     this.timeFromLastDodge = this.dodgeDelay;
@@ -55,17 +46,19 @@ function Player(x, y) {
         }
         this.checkWorldbounds();
 
-        if(this.currentWeapon.reloading && this.currentWeapon.timeFromLastReload >= this.currentWeapon.reloadTime){
-          this.currentWeapon.reload();
-        }
-        if (this.currentWeapon.timeFromLastReload < this.currentWeapon.reloadTime) {
-          this.currentWeapon.timeFromLastReload++;
+        if(this.currentWeapon != 0){
+          if(this.currentWeapon.reloading && this.currentWeapon.timeFromLastReload >= this.currentWeapon.reloadTime){
+            this.currentWeapon.reload();
+          }
+          if (this.currentWeapon.timeFromLastReload < this.currentWeapon.reloadTime) {
+            this.currentWeapon.timeFromLastReload++;
+          }
+          if (this.timeFromLastShot <  this.currentWeapon.fireRate) {
+              this.timeFromLastShot++;
+          }
         }
         if (this.timeFromLastHit < this.hitDelay) {
             this.timeFromLastHit++;
-        }
-        if (this.timeFromLastShot <  this.currentWeapon.fireRate) {
-            this.timeFromLastShot++;
         }
         if (this.timeFromLastShotFace <  60) {
             this.timeFromLastShotFace++;
@@ -157,11 +150,13 @@ function Player(x, y) {
     }
 
     this.shoot = function () {
+      if(this.currentWeapon != -1){
         if (mouseIsPressed && this.timeFromLastShot >= this.currentWeapon.fireRate && this.currentWeapon.mouseReleased && !this.currentWeapon.reloading) {
             this.timeFromLastShot = 0;
             this.timeFromLastShotFace = 0;
             this.currentWeapon.fire(this.arrowPos.x, this.arrowPos.y, mouseX, mouseY);
         }
+      }
     }
 
     this.dodge = function(){

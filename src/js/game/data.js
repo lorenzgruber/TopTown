@@ -16,7 +16,7 @@ var data = {
 			"bulletLifeTime": 30,
 			"magazinSize": 8,
 			"reloadTime": 150,
-			"type": "Weapon",
+			"type": "Main Weapon",
 			"description": "a strong and reliable weapon for close quarter combat",
 			"img": "../res/items/weapons/shotgun.png"
 		},
@@ -32,7 +32,7 @@ var data = {
 			"bulletLifeTime": 80,
 			"magazinSize": 15,
 			"reloadTime": 50,
-			"type": "Weapon",
+			"type": "Secondary Weapon",
 			"description": "a weak but fast weapon",
 			"img": "../res/items/weapons/pistol.png"
 		},
@@ -48,7 +48,7 @@ var data = {
 			"bulletLifeTime": 80,
 			"magazinSize": 30,
 			"reloadTime": 60,
-			"type": "Weapon",
+			"type": "Main Weapon",
 			"description": "a fast and medium damage weapon",
 			"img": "../res/items/weapons/assault.png"
 		},
@@ -64,7 +64,7 @@ var data = {
 			"bulletLifeTime": 100,
 			"magazinSize": 5,
 			"reloadTime": 100,
-			"type": "Weapon",
+			"type": "Main Weapon",
 			"description": "A very slow but extremely high damaging weapon",
 			"img": "../res/items/weapons/sniper.png"
 		},
@@ -80,7 +80,7 @@ var data = {
 			"bulletLifeTime": 50,
 			"magazinSize": 250,
 			"reloadTime": 250,
-			"type": "Weapon",
+			"type": "Main Weapon",
 			"description": "A extremely fast but very low damaging weapon",
 			"img": "../res/items/weapons/minigun.png"
 		}

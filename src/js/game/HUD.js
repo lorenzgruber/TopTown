@@ -211,15 +211,17 @@ function drawCursor(){
 }
 
 function drawMag(){
-  push();
+  if(game.player.currentWeapon != -1){
+    push();
 
-  textFont('Georgia');
-  textSize(30);
-  textAlign(CENTER, CENTER);
-  fill(255);
-  text(game.player.currentWeapon.bulletsinMag + '/' + game.player.inv.bullets, game.camera.pos.x, game.camera.pos.y + height/2 -130);
+    textFont('Georgia');
+    textSize(30);
+    textAlign(CENTER, CENTER);
+    fill(255);
+    text(game.player.currentWeapon.bulletsinMag + '/' + game.player.inv.bullets, game.camera.pos.x, game.camera.pos.y + height/2 -130);
 
-  pop();
+    pop();
+  }
 }
 
 function drawReloadBar(){
@@ -242,5 +244,22 @@ function drawReloadBar(){
     rect(game.camera.pos.x - width/8 - 40, game.camera.pos.y + height/2 - 135, width/4 + 80, 15);
 
     pop();
+  }
+}
+
+function drawWeapon(){
+  if(game.player.currentWeapon != -1){
+    var scale = 1 / 10 * width*0.0005;
+    var size = 200;
+
+    push();
+    stroke(255,255,255);
+    strokeWeight(5);
+    fill(color("rgba(0,0,0,0.5)"));
+    rectMode(CENTER);
+    rect(game.camera.pos.x - width/2 + size/2 + 25, game.camera.pos.y + height/2 - size/2 - 25, size * 3/4, size * 3/4);
+    pop();
+
+    ctx.drawImage(game.player.currentWeapon.img, game.camera.pos.x - width/2 + 25 + size*1/5, game.camera.pos.y + height/2 - size - 25 + size*1/5, size*3/5, size*3/5);
   }
 }

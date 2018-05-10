@@ -138,5 +138,6 @@ function Game(){
     drawCursor();
     drawReloadBar();
     drawMag();
+    drawWeapon();
   }
 }

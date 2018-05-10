@@ -1,6 +1,6 @@
 function keyPressed(){
-  if(keyCode === 49 || keyCode === 50 || keyCode === 51 || keyCode === 52 || keyCode === 53){
-    game.player.inv.selectWeapon(keyCode - 49);
+  if(keyCode === 49 || keyCode === 50){
+    game.player.inv.selectWeapon(keyCode - 48);
   }
 
   if(keyCode === 84){

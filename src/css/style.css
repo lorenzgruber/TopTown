@@ -196,6 +196,10 @@ button:focus {
   background-color: rgb(40,40,40);
 }
 
+.equipped{
+  box-shadow: inset 3px 0 0 rgb(200,200,200);
+}
+
 
 
 .inv-equipSlots{

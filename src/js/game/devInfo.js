@@ -1,6 +1,6 @@
 function DevTools() {
-  this.playerinvincability = false;
-  this.nexusInvincability = false;
+  this.playerinvincability = true;
+  this.nexusInvincability = true;
   this.enemiesSpawn = true;
   this.devToolsVisible = false;
   this.devInfoVisible = false;
