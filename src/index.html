@@ -1,55 +1,64 @@
 <html>
-  <head>
-    <title>Top Down Shooter</title>
-    <meta  charset="UTF-8">
-    <script src="js/libraries/p5.min.js"></script>
-    <script src="js/libraries/p5.dom.min.js"></script>
-    <script src="js/libraries/jquery-3.3.1.min.js"></script>
 
-    <script src="js/game/main.js"></script>
-    <script src="js/game/game.js"></script>
-    <script src="js/game/player.js"></script>
-    <script src="js/game/enemy.js"></script>
-    <script src="js/game/turret.js"></script>
-    <script src="js/game/inventory.js"></script>
-    <script src="js/game/weapon.js"></script>
-    <script src="js/game/items.js"></script>
-    <script src="js/game/bullet.js"></script>
-    <script src="js/game/camera.js"></script>
-    <script src="js/game/collisionDetection.js"></script>
-    <script src="js/game/nexus.js"></script>
-    <script src="js/game/HUD.js"></script>
-    <script src="js/game/inputManager.js"></script>
-    <script src="js/game/devInfo.js"></script>
-    <script src="js/game/assetLoader.js"></script>
-    <script src="js/game/data.js"></script>
+<head>
+  <title>Top Down Shooter</title>
+  <meta charset="UTF-8">
+  <script src="js/libraries/p5.min.js"></script>
+  <script src="js/libraries/p5.dom.min.js"></script>
+  <script src="js/libraries/jquery-3.3.1.min.js"></script>
 
-    <script type="text/javascript">
-      document.addEventListener('contextmenu', event => event.preventDefault());
-    </script>
+  <script src="js/game/main.js"></script>
+  <script src="js/game/game.js"></script>
+  <script src="js/game/player.js"></script>
+  <script src="js/game/enemy.js"></script>
+  <script src="js/game/turret.js"></script>
+  <script src="js/game/inventory.js"></script>
+  <script src="js/game/weapon.js"></script>
+  <script src="js/game/items.js"></script>
+  <script src="js/game/bullet.js"></script>
+  <script src="js/game/camera.js"></script>
+  <script src="js/game/collisionDetection.js"></script>
+  <script src="js/game/nexus.js"></script>
+  <script src="js/game/HUD.js"></script>
+  <script src="js/game/inputManager.js"></script>
+  <script src="js/game/devInfo.js"></script>
+  <script src="js/game/assetLoader.js"></script>
+  <script src="js/game/data.js"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <script type="text/javascript">
+    document.addEventListener('contextmenu', event => event.preventDefault());
+  </script>
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="icon" href="../res/icon.png">
-  </head>
-  <body>
-    <div class="devDiv" id="infoDiv"></div>
-    <div class="devDiv" id="devTools"></div>
+  <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
-    <div class="inventory" id="inventory">
-      <!-- <div class="inventoryBgFilter"></div> -->
-      <div class="inventoryItems">
-        <ul id="invList"></ul>
-      </div>
-      <div class="itemInfo" id="itemInfo">
-      </div>
-      <div class="inv-equipSlots">
-      <div class="grid-item" id="mainWeapon"><p>Main Weapon</p></div>
-      <div class="grid-item" id="secWeapon"><p>Secundary Weapon</p></div>
-      <div class="grid-item" id="skin"><p>Vanity</p></div>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="icon" href="../res/icon.png">
+</head>
+
+<body>
+  <div class="devDiv" id="infoDiv"></div>
+  <div class="devDiv" id="devTools"></div>
+
+  <div class="inventory" id="inventory">
+    <!-- <div class="inventoryBgFilter"></div> -->
+    <div class="inventoryItems">
+      <ul id="invList"></ul>
     </div>
+    <div class="itemInfo" id="itemInfo">
     </div>
-  </body>
+    <div class="inv-equipSlots">
+      <div class="grid-item" id="mainWeapon">
+        <p>Main Weapon</p>
+      </div>
+      <div class="grid-item" id="secWeapon">
+        <p>Secundary Weapon</p>
+      </div>
+      <div class="grid-item" id="skin">
+        <p>Vanity</p>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

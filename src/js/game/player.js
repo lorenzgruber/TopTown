@@ -21,6 +21,7 @@ function Player(x, y) {
     }
 
     this.inv.equipMainWeapon(this.inv.items[0]);
+    this.inv.equipSecWeapon(this.inv.items[1]);
     this.currentWeapon = this.inv.mainWeaponSlot;
     this.timeFromLastShot = 0;
 
