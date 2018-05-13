@@ -1,4 +1,5 @@
 function Game(){
+  this.waveManager = new WaveMangaer();
   this.nexus = new Nexus(0, 0);
   this.player = new Player(0, this.nexus.size);
   this.enemies = [];
@@ -9,26 +10,17 @@ function Game(){
   this.score = 0;
   this.gameOver = false;
 
-  this.generateEnemySpawnPoint = function(){
-    var spawnPoint = createVector();
-    var direction = createVector(this.worldSize.x, this.worldSize.y);
-    direction.rotate(random(0,2*PI))
-    spawnPoint.add(direction);
-
-    return spawnPoint;
-  }
-
-  for (i = 0; i < 15; i++) {
-    var spawnPoint = this.generateEnemySpawnPoint();
-    this.enemies.push(new Enemy(spawnPoint.x, spawnPoint.y, enemyImg[round(random(0,3))]));
-  }
 
   this.turrets.push(new Turret(300,300));
   this.turrets.push(new Turret(-300,300));
   this.turrets.push(new Turret(300,-300));
   this.turrets.push(new Turret(-300,-300));
 
+  this.waveManager.startNextWave();
+
   this.update = function(){
+    this.waveManager.update();
+
     if (this.player.health < 0 || this.nexus.health < 0) {
       this.gameOver = true;
     }
@@ -77,8 +69,7 @@ function Game(){
 
       if (this.enemies[i].dead) {
         this.enemies.splice(i, 1);
-        var spawnPoint = this.generateEnemySpawnPoint();
-        this.enemies.push(new Enemy(spawnPoint.x, spawnPoint.y, enemyImg[round(random(0,3))]));
+        this.waveManager.enemiesRemaining --;
         this.score += 100;
       }
     }
@@ -139,5 +130,6 @@ function Game(){
     drawReloadBar();
     drawMag();
     drawWeapon();
+    drawWaveInfo();
   }
 }

@@ -46,10 +46,12 @@ function Turret(x,y){
         }
       }
       this.target = target;
-
       if(this.target != 0){
         this.dir = this.getDirection();
       }
+    }
+    if(game.enemies.length <= 0){
+      this.target = target;
     }
   }
 

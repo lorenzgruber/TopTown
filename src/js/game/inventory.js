@@ -66,11 +66,19 @@ function Inventory(){
       this.updateItems();
       this.updateItemInfo();
       this.updateEquipmentSlots();
+
+      if(!game.waveManager.inWave){
+        document.getElementById('nextWaveReminder').style.display = "none";
+      }
     }
     else{
       inv.style.display = "none";
       canvas.className = "";
       this.showing = false;
+
+      if(!game.waveManager.inWave){
+        document.getElementById('nextWaveReminder').style.display = "inline";
+      }
     }
   }
 

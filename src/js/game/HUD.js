@@ -213,7 +213,7 @@ function drawMag() {
   if (game.player.currentWeapon != -1) {
     push();
 
-    textFont('Georgia');
+    textFont('Anton');
     textSize(30);
     textAlign(CENTER, CENTER);
     fill(255);
@@ -308,4 +308,20 @@ function drawWeapon() {
       pop();
     }
   }
+}
+
+function drawWaveInfo(){
+  push();
+  stroke(255, 255, 255);
+  strokeWeight(3);
+  fill(color("rgba(0,0,0,0.5)"));
+  rect(game.camera.pos.x - width/2 + 25, game.camera.pos.y - height/2 + 25, 100, 35);
+  pop();
+  push();
+  textFont('Anton');
+  textSize(20);
+  textAlign(LEFT, CENTER);
+  fill(255,255,255);
+  text("Wave " + game.waveManager.wave, game.camera.pos.x - width/2 + 33, game.camera.pos.y - height/2 + 43);
+  pop();
 }

@@ -1,5 +1,6 @@
-function Enemy(x, y, img) {
+function Enemy(x, y, img, power) {
   this.strength = random(4, 8);
+  this.power = power;
   this.pos = createVector(x, y);
   this.size = 11 * this.strength;
   this.vel = createVector(0, 0);
@@ -13,8 +14,8 @@ function Enemy(x, y, img) {
   this.seesPlayer = false;
   this.currentTarget = 0;
 
-  this.dmg = 4 * this.strength;
-  this.initalHealth = 20 * this.strength;
+  this.dmg = 4 * this.strength * this.power;
+  this.initalHealth = 20 * this.strength * this.power;
   this.health = this.initalHealth;
   this.dead = false;
 

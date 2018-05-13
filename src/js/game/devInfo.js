@@ -52,6 +52,11 @@ function DevTools() {
 		    "<br>Nexus-HP: " + round(game.nexus.health) +
 		    "<br>Weapon: " + game.player.currentWeapon.name +
         "<br>R: " + game.player.currentWeapon.timeFromLastReload +
+        "<br><br>Wave: " + game.waveManager.wave +
+        "<br>Enemie Total: " + game.waveManager.enemiesInTotal +
+        "<br>Enemie at a time: " + game.waveManager.enemiesAtATime +
+        "<br>Enemie remaining: " + game.waveManager.enemiesRemaining +
+        "<br>Enemie Power: " + game.waveManager.enemiePowerMultiplyer +
 		    "<br><br>SCORE: " + game.score;
     }
     if (this.playerinvincability) {

@@ -3,6 +3,13 @@
 <head>
   <title>Top Down Shooter</title>
   <meta charset="UTF-8">
+
+<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="icon" href="../res/icon.png">
+
   <script src="js/libraries/p5.min.js"></script>
   <script src="js/libraries/p5.dom.min.js"></script>
   <script src="js/libraries/jquery-3.3.1.min.js"></script>
@@ -23,22 +30,19 @@
   <script src="js/game/inputManager.js"></script>
   <script src="js/game/devInfo.js"></script>
   <script src="js/game/assetLoader.js"></script>
+  <script src="js/game/waveManager.js"></script>
   <script src="js/game/data.js"></script>
 
   <script type="text/javascript">
     document.addEventListener('contextmenu', event => event.preventDefault());
   </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="icon" href="../res/icon.png">
 </head>
 
 <body>
   <div class="devDiv" id="infoDiv"></div>
   <div class="devDiv" id="devTools"></div>
+  <div class="nextWaveReminder" id="nextWaveReminder">Press N to start the next Wave</div>
 
   <div class="inventory" id="inventory">
     <!-- <div class="inventoryBgFilter"></div> -->

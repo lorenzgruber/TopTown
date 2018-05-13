@@ -255,3 +255,42 @@ button:focus {
   background-color: rgba(255,255,255,0.1);
 
 }
+
+
+.nextWaveReminder{
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translateX(-50%);
+  z-index: 2;
+  border: 3px solid rgb(200,200,200);
+  color: rgb(200,200,200);
+  background-color: rgba(50,50,50,0.5);
+  padding: 10px;
+  display: none;
+  animation-name: nextWaveReminderAnimation;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes nextWaveReminderAnimation {
+  0%{
+    transform: scale(1) translateX(-50%);
+    background-color: rgba(50,50,50,0.5);
+    border-color: rgb(200,200,200);
+    color: rgb(200,200,200);
+  }
+  50%{
+    transform: scale(1.1) translateX(-45%);
+    background-color: rgba(0,0,0,0.5);
+    border-color: white;
+    color: white;
+  }
+  100%{
+    transform: scale(1) translateX(-50%);
+    background-color: rgba(50,50,50,0.5);
+    border-color: rgb(200,200,200);
+    color: rgb(200,200,200);
+  }
+}

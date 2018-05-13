@@ -14,6 +14,10 @@ function keyPressed(){
   if(keyCode === 82 && game.player.currentWeapon.bulletsinMag < game.player.currentWeapon.magSize){
     game.player.currentWeapon.startReload();
   }
+
+  if(keyCode === 78 && !game.waveManager.inWave){
+    game.waveManager.startNextWave();
+  }
 }
 
 function mouseReleased(){
