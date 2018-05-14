@@ -26,6 +26,7 @@ function mouseReleased(){
   }
 }
 
+/*
 function mouseWheel(event) {
   if(event.delta < 0){
     game.player.inv.selectedWeaponSlot --;
@@ -41,4 +42,5 @@ function mouseWheel(event) {
     }
   }
   game.player.inv.selectWeapon(game.player.inv.selectedWeaponSlot);
-}
+} 
+*/
