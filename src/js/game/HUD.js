@@ -217,7 +217,7 @@ function drawMag() {
     textSize(30);
     textAlign(CENTER, CENTER);
     fill(255);
-    text(game.player.currentWeapon.bulletsinMag + '/' + game.player.inv.bullets, game.camera.pos.x, game.camera.pos.y + height / 2 - 130);
+    text(game.player.currentWeapon.bulletsinMag, game.camera.pos.x, game.camera.pos.y + height / 2 - 130);
 
     pop();
   }
@@ -324,4 +324,15 @@ function drawWaveInfo(){
   fill(255,255,255);
   text("Wave " + game.waveManager.wave, game.camera.pos.x - width/2 + 33, game.camera.pos.y - height/2 + 43);
   pop();
+}
+
+function popUpMessage(message){
+  document.getElementById("popUp").innerHTML = message;
+  document.getElementById("popUp").classList.add("popUpAnimation");
+}
+
+function initPopUpReset(){
+  document.getElementById("popUp").addEventListener("webkitAnimationEnd", function(){
+    document.getElementById("popUp").classList.remove("popUpAnimation");
+  });
 }

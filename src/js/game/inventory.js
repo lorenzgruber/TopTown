@@ -10,8 +10,6 @@ function Inventory(){
   this.selectedItem = -1;
   this.selectedWeaponSlot = 1;
 
-  this.bullets = 500;
-
   this.showing = false;
 
   this.addItem = function(item){

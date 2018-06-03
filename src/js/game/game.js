@@ -13,10 +13,7 @@ function Game(){
   this.gameOver = false;
 
 
-  this.turrets.push(new Turret(300,300));
-  this.turrets.push(new Turret(-300,300));
-  this.turrets.push(new Turret(300,-300));
-  this.turrets.push(new Turret(-300,-300));
+  
 
   this.waveManager.startNextWave();
 

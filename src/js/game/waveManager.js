@@ -7,6 +7,24 @@ function WaveMangaer(){
   this.enemiesAtATime = 3;
   this.enemiePowerMultiplyer = 1;
 
+  this.weaponUpgrade1 = false;
+  this.weaponUpgrade2 = false;
+  this.weaponUpgrade3 = false;
+  this.weaponUpgrade4 = false;
+  this.weaponUpgrade5 = false;
+
+  this.healthUpgrade1 = false;
+  this.healthUpgrade2 = false;
+  this.healthUpgrade3 = false;
+  this.healthUpgrade4 = false;
+  this.healthUpgrade5 = false;
+
+  this.turrets = false;
+  this.turretUpgrade1 = false;
+  this.turretUpgrade1 = false;
+
+  this.prevWavePlayer = -1;
+
   this.update = function(){
     if(game.enemies.length < round(this.enemiesAtATime) && this.inWave){
       for (var i = 0; i < round(this.enemiesAtATime) - game.enemies.length; i++) {
@@ -44,7 +62,243 @@ function WaveMangaer(){
 
   this.endWave = function(){
     this.inWave = false;
+    this.waveEvents();
+    game.player.newHealth = game.player.initalHealth;
+    game.player.health = game.player.initalHealth;
+    if(this.wave / 5 == 0 || this.wave == 19){
+      game.nexus.health = game.nexus.initalHealth;
+    }
+    this.prevWavePlayer = game.player;
     this.showNextWaveReminder();
+  }
+
+  this.waveEvents = function(){
+    if(this.wave >= 3 && !this.healthUpgrade1){
+      this.healthUpgrade1 = true;
+      game.player.initalHealth = 250;
+      popUpMessage("Health Increased!")
+    }
+
+    if(this.wave >= 4 && !this.weaponUpgrade1){
+      this.weaponUpgrade1 = true;
+      game.player.inv.items[0] = weapons["Shotgun+1"];
+      game.player.inv.items[1] = weapons["Pistol+1"];
+      game.player.inv.items[2] = weapons["AssaultRifle+1"];
+      game.player.inv.items[3] = weapons["Sniper+1"];
+      game.player.inv.items[4] = weapons["Minigun+1"];
+
+      if(game.player.inv.mainWeaponSlot === weapons["Shotgun"]){
+        game.player.inv.mainWeaponSlot = weapons["Shotgun+1"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["AssaultRifle"]){
+        game.player.inv.mainWeaponSlot = weapons["AssaultRifle+1"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["Sniper"]){
+        game.player.inv.mainWeaponSlot = weapons["Sniper+1"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["Minigun"]){
+        game.player.inv.mainWeaponSlot = weapons["Minigun+1"];
+      }
+      if(game.player.inv.secWeaponSlot === weapons["Pistol"]){
+        game.player.inv.secWeaponSlot = weapons["Pistol+1"];
+      }
+
+      if(game.player.inv.selectedWeaponSlot == 1){
+        game.player.currentWeapon = game.player.inv.mainWeaponSlot;
+      }
+      else{
+        game.player.currentWeapon = game.player.inv.selectedWeaponSlot;
+      }
+
+      popUpMessage("Weapons Upgraded!")
+    }
+
+    if(this.wave >= 5 && !this.turrets){
+      this.turrets = true;
+      game.turrets.push(new Turret(300,300));
+      game.turrets.push(new Turret(-300,300));
+      game.turrets.push(new Turret(300,-300));
+      game.turrets.push(new Turret(-300,-300));
+      popUpMessage("Turrets added!")
+    }
+
+    if(this.wave >= 7 && !this.healthUpgrade2){
+      this.healthUpgrade2 = true;
+      game.player.initalHealth = 300;
+      popUpMessage("Health Increased!")
+    }
+
+    if(this.wave >= 8 && !this.weaponUpgrade2){
+      this.weaponUpgrade2 = true;
+      game.player.inv.items[0] = weapons["Shotgun+2"];
+      game.player.inv.items[1] = weapons["Pistol+2"];
+      game.player.inv.items[2] = weapons["AssaultRifle+2"];
+      game.player.inv.items[3] = weapons["Sniper+2"];
+      game.player.inv.items[4] = weapons["Minigun+2"];
+
+      if(game.player.inv.mainWeaponSlot === weapons["Shotgun+1"]){
+        game.player.inv.mainWeaponSlot = weapons["Shotgun+2"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["AssaultRifle+1"]){
+        game.player.inv.mainWeaponSlot = weapons["AssaultRifle+2"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["Sniper+1"]){
+        game.player.inv.mainWeaponSlot = weapons["Sniper+2"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["Minigun+1"]){
+        game.player.inv.mainWeaponSlot = weapons["Minigun+2"];
+      }
+      if(game.player.inv.secWeaponSlot === weapons["Pistol+1"]){
+        game.player.inv.secWeaponSlot = weapons["Pistol+2"];
+      }
+
+      if(game.player.inv.selectedWeaponSlot == 1){
+        game.player.currentWeapon = game.player.inv.mainWeaponSlot;
+      }
+      else{
+        game.player.currentWeapon = game.player.inv.selectedWeaponSlot;
+      }
+
+      popUpMessage("Weapons Upgraded!")
+    }
+
+    if(this.wave >= 10 && !this.turretUpgrade1){
+      this.turretUpgrade1 = true;
+      for (var i = 0; i < game.turrets.length; i++) {
+        game.turrets[i].dmg = 18;
+        game.turrets[i].fireRate = 7;
+        game.turrets[i].range = 120;
+      }
+      popUpMessage("Turrets Upgraded!")
+    }
+
+    if(this.wave >= 11 && !this.healthUpgrade3){
+      this.healthUpgrade3 = true;
+      game.player.initalHealth = 350;
+      popUpMessage("Health Increased!")
+    }
+
+    if(this.wave >= 12 && !this.weaponUpgrade3){
+      this.weaponUpgrade3 = true;
+      game.player.inv.items[0] = weapons["Shotgun+3"];
+      game.player.inv.items[1] = weapons["Pistol+3"];
+      game.player.inv.items[2] = weapons["AssaultRifle+3"];
+      game.player.inv.items[3] = weapons["Sniper+3"];
+      game.player.inv.items[4] = weapons["Minigun+3"];
+
+      if(game.player.inv.mainWeaponSlot === weapons["Shotgun+2"]){
+        game.player.inv.mainWeaponSlot = weapons["Shotgun+3"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["AssaultRifle+2"]){
+        game.player.inv.mainWeaponSlot = weapons["AssaultRifle+3"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["Sniper+2"]){
+        game.player.inv.mainWeaponSlot = weapons["Sniper+3"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["Minigun+2"]){
+        game.player.inv.mainWeaponSlot = weapons["Minigun+3"];
+      }
+      if(game.player.inv.secWeaponSlot === weapons["Pistol+2"]){
+        game.player.inv.secWeaponSlot = weapons["Pistol+3"];
+      }
+
+      if(game.player.inv.selectedWeaponSlot == 1){
+        game.player.currentWeapon = game.player.inv.mainWeaponSlot;
+      }
+      else{
+        game.player.currentWeapon = game.player.inv.selectedWeaponSlot;
+      }
+
+      popUpMessage("Weapons Upgraded!")
+    }
+
+    if(this.wave >= 15 && !this.turretUpgrade2 && !this.healthUpgrade4){
+      this.turretUpgrade2 = true;
+      this.healthUpgrade4 = true;
+      game.player.initalHealth = 400;
+      for (var i = 0; i < game.turrets.length; i++) {
+        game.turrets[i].dmg = 25;
+        game.turrets[i].fireRate = 5;
+        game.turrets[i].range = 130;
+        game.turrets[i].bulletVel = 40;
+      }
+      popUpMessage("Turrets Upgraded!\nHealht Upgraded!")
+    }
+
+
+    if(this.wave >= 16 && !this.weaponUpgrade4){
+      this.weaponUpgrade4 = true;
+      game.player.inv.items[0] = weapons["Shotgun+4"];
+      game.player.inv.items[1] = weapons["Pistol+4"];
+      game.player.inv.items[2] = weapons["AssaultRifle+4"];
+      game.player.inv.items[3] = weapons["Sniper+4"];
+      game.player.inv.items[4] = weapons["Minigun+4"];
+
+      if(game.player.inv.mainWeaponSlot === weapons["Shotgun+3"]){
+        game.player.inv.mainWeaponSlot = weapons["Shotgun+4"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["AssaultRifle+3"]){
+        game.player.inv.mainWeaponSlot = weapons["AssaultRifle+4"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["Sniper+3"]){
+        game.player.inv.mainWeaponSlot = weapons["Sniper+4"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["Minigun+3"]){
+        game.player.inv.mainWeaponSlot = weapons["Minigun+4"];
+      }
+      if(game.player.inv.secWeaponSlot === weapons["Pistol+3"]){
+        game.player.inv.secWeaponSlot = weapons["Pistol+4"];
+      }
+
+      if(game.player.inv.selectedWeaponSlot == 1){
+        game.player.currentWeapon = game.player.inv.mainWeaponSlot;
+      }
+      else{
+        game.player.currentWeapon = game.player.inv.selectedWeaponSlot;
+      }
+
+      popUpMessage("Weapons Upgraded!")
+    }
+
+    if(this.wave >= 18 && !this.healthUpgrade5){
+      this.healthUpgrade5 = true;
+      game.player.initalHealth = 500;
+      popUpMessage("Health Increased!")
+    }
+
+    if(this.wave >= 19 && !this.weaponUpgrade5){
+      this.weaponUpgrade5 = true;
+      game.player.inv.items[0] = weapons["Shotgun+5"];
+      game.player.inv.items[1] = weapons["Pistol+5"];
+      game.player.inv.items[2] = weapons["AssaultRifle+5"];
+      game.player.inv.items[3] = weapons["Sniper+5"];
+      game.player.inv.items[4] = weapons["Minigun+5"];
+
+      if(game.player.inv.mainWeaponSlot === weapons["Shotgun+4"]){
+        game.player.inv.mainWeaponSlot = weapons["Shotgun+5"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["AssaultRifle+4"]){
+        game.player.inv.mainWeaponSlot = weapons["AssaultRifle+5"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["Sniper+4"]){
+        game.player.inv.mainWeaponSlot = weapons["Sniper+5"];
+      }
+      if(game.player.inv.mainWeaponSlot === weapons["Minigun+4"]){
+        game.player.inv.mainWeaponSlot = weapons["Minigun+5"];
+      }
+      if(game.player.inv.secWeaponSlot === weapons["Pistol+4"]){
+        game.player.inv.secWeaponSlot = weapons["Pistol+5"];
+      }
+
+      if(game.player.inv.selectedWeaponSlot == 1){
+        game.player.currentWeapon = game.player.inv.mainWeaponSlot;
+      }
+      else{
+        game.player.currentWeapon = game.player.inv.selectedWeaponSlot;
+      }
+
+      popUpMessage("Weapons Upgraded!")
+    }
   }
 
   this.generateEnemySpawnPoint = function(){

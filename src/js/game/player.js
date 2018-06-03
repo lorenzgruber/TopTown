@@ -13,7 +13,9 @@ function Player(x, y) {
     this.inv = new Inventory();
 
     for(key in weapons){
-      this.inv.addItem(weapons[key]);
+      if(!weapons[key].name.includes("+")){
+        this.inv.addItem(weapons[key]);
+      }
     }
 
     for(key in hats){

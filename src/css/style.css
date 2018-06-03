@@ -364,3 +364,40 @@ button:focus {
   font-size: 1vw;
   margin-bottom: 0.5vw;
 }
+
+.popUp{
+  position: absolute;
+  right: -50%;
+  top: 0;
+  padding: 20px;
+  background-color: rgba(0,0,0,0.5);
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  color: white;
+  display: none;
+}
+
+.popUpAnimation{
+  animation-name: popupAnimation;
+  animation-duration: 5s;
+  display: inline !important;
+}
+
+@keyframes popupAnimation{
+  0%{
+    right: -50%;
+    display: inline;
+  }
+  5%{
+    right: 0%;
+    display: inline;
+  }
+  95%{
+    right: 0%;
+    display: inline;
+  }
+  100%{
+    right: -50%;
+    display: inline;
+  }
+}
