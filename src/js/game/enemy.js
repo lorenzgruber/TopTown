@@ -353,7 +353,7 @@ function EnemySpitter(x, y, img, power, type) {
   this.spit = function(){
     if(this.target != 0 && this.timeFromLastShot >= this.fireRate){
       var col = color(random(200,255), random(85,125), random(100,150))
-      game.enemyBullets.push(new EnemyBullet(this.pos.x, this.pos.y, this.getDirection(), 13, this.dmg));
+      game.enemyBullets.push(new EnemyBullet(this.pos.x, this.pos.y, this.getDirection(), 13, this.dmg/2));
       this.timeFromLastShot = 0;
     }
   }

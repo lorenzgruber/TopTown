@@ -145,9 +145,7 @@ function drawGameOverScreen() {
   fill(255);
   text('GAME OVER', game.camera.pos.x, game.camera.pos.y);
   textSize(40);
-  text('YOUR SCORE WAS', game.camera.pos.x, game.camera.pos.y + 100);
-  text(game.score, game.camera.pos.x, game.camera.pos.y + 150);
-
+  text('Press Any Key to Restart', game.camera.pos.x, game.camera.pos.y + 100);
   pop();
 }
 

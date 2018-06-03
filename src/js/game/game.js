@@ -9,11 +9,10 @@ function Game(){
   this.enemyBullets = [];
   this.worldSize = createVector(1500,1500);
   this.camera = new Camera(this.player, 1);
-  this.score = 0;
   this.gameOver = false;
 
 
-  
+
 
   this.waveManager.startNextWave();
 
@@ -92,7 +91,6 @@ function Game(){
       if (this.enemies[i].dead) {
         this.enemies.splice(i, 1);
         this.waveManager.enemiesRemaining --;
-        this.score += 100;
       }
     }
 
@@ -157,5 +155,20 @@ function Game(){
     drawMag();
     drawWeapon();
     drawWaveInfo();
+  }
+
+  this.reset = function(){
+    this.waveManager = new WaveMangaer();
+    this.nexus = new Nexus(0, 0);
+    this.player = new Player(0, this.nexus.size);
+    this.shop = new Shop();
+    this.enemies = [];
+    this.turrets = [];
+    this.bullets = [];
+    this.enemyBullets = [];
+    this.worldSize = createVector(1500,1500);
+    this.camera = new Camera(this.player, 1);
+    this.gameOver = false;
+    this.waveManager.startNextWave();
   }
 }

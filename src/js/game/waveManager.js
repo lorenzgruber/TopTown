@@ -65,9 +65,7 @@ function WaveMangaer(){
     this.waveEvents();
     game.player.newHealth = game.player.initalHealth;
     game.player.health = game.player.initalHealth;
-    if(this.wave / 5 == 0 || this.wave == 19){
-      game.nexus.health = game.nexus.initalHealth;
-    }
+    game.nexus.health = game.nexus.initalHealth;
     this.prevWavePlayer = game.player;
     this.showNextWaveReminder();
   }
@@ -76,6 +74,7 @@ function WaveMangaer(){
     if(this.wave >= 3 && !this.healthUpgrade1){
       this.healthUpgrade1 = true;
       game.player.initalHealth = 250;
+      game.nexus.initalHealth = 4500;
       popUpMessage("Health Increased!")
     }
 
@@ -125,6 +124,7 @@ function WaveMangaer(){
     if(this.wave >= 7 && !this.healthUpgrade2){
       this.healthUpgrade2 = true;
       game.player.initalHealth = 300;
+      game.nexus.initalHealth = 5000;
       popUpMessage("Health Increased!")
     }
 
@@ -175,6 +175,7 @@ function WaveMangaer(){
     if(this.wave >= 11 && !this.healthUpgrade3){
       this.healthUpgrade3 = true;
       game.player.initalHealth = 350;
+      game.nexus.initalHealth = 5500;
       popUpMessage("Health Increased!")
     }
 
@@ -216,6 +217,7 @@ function WaveMangaer(){
       this.turretUpgrade2 = true;
       this.healthUpgrade4 = true;
       game.player.initalHealth = 400;
+      game.nexus.initalHealth = 6000;
       for (var i = 0; i < game.turrets.length; i++) {
         game.turrets[i].dmg = 25;
         game.turrets[i].fireRate = 5;
@@ -263,6 +265,7 @@ function WaveMangaer(){
     if(this.wave >= 18 && !this.healthUpgrade5){
       this.healthUpgrade5 = true;
       game.player.initalHealth = 500;
+      game.nexus.initalHealth = 8000;
       popUpMessage("Health Increased!")
     }
 

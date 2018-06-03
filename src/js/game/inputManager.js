@@ -31,6 +31,10 @@ function keyPressed(){
   if(keyCode === 78 && !game.waveManager.inWave){
     game.waveManager.startNextWave();
   }
+
+  if(game.gameOver){
+    game.reset();
+  }
 }
 
 function mouseReleased(){
