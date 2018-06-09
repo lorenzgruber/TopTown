@@ -102,11 +102,27 @@ function WaveMangaer(){
         game.player.inv.secWeaponSlot = weapons["Pistol+1"];
       }
 
+      if(game.player.inv.selectedItem === weapons["Shotgun"]){
+        game.player.inv.selectedItem = weapons["Shotgun+1"];
+      }
+      if(game.player.inv.selectedItem === weapons["AssaultRifle"]){
+        game.player.inv.selectedItem = weapons["AssaultRifle+1"];
+      }
+      if(game.player.inv.selectedItem === weapons["Sniper"]){
+        game.player.inv.selectedItem = weapons["Sniper+1"];
+      }
+      if(game.player.inv.selectedItem === weapons["Minigun"]){
+        game.player.inv.selectedItem = weapons["Minigun+1"];
+      }
+      if(game.player.inv.selectedItem === weapons["Pistol"]){
+        game.player.inv.selectedItem = weapons["Pistol+1"];
+      }
+
       if(game.player.inv.selectedWeaponSlot == 1){
         game.player.currentWeapon = game.player.inv.mainWeaponSlot;
       }
       else{
-        game.player.currentWeapon = game.player.inv.selectedWeaponSlot;
+        game.player.currentWeapon = game.player.inv.secWeaponSlot;
       }
 
       popUpMessage("Weapons Upgraded!")
@@ -152,11 +168,27 @@ function WaveMangaer(){
         game.player.inv.secWeaponSlot = weapons["Pistol+2"];
       }
 
+      if(game.player.inv.selectedItem === weapons["Shotgun+1"]){
+        game.player.inv.selectedItem = weapons["Shotgun+2"];
+      }
+      if(game.player.inv.selectedItem === weapons["AssaultRifle+1"]){
+        game.player.inv.selectedItem = weapons["AssaultRifle+2"];
+      }
+      if(game.player.inv.selectedItem === weapons["Sniper+1"]){
+        game.player.inv.selectedItem = weapons["Sniper+2"];
+      }
+      if(game.player.inv.selectedItem === weapons["Minigun+1"]){
+        game.player.inv.selectedItem = weapons["Minigun+2"];
+      }
+      if(game.player.inv.selectedItem === weapons["Pistol+1"]){
+        game.player.inv.selectedItem = weapons["Pistol+2"];
+      }
+
       if(game.player.inv.selectedWeaponSlot == 1){
         game.player.currentWeapon = game.player.inv.mainWeaponSlot;
       }
       else{
-        game.player.currentWeapon = game.player.inv.selectedWeaponSlot;
+        game.player.currentWeapon = game.player.inv.secWeaponSlot;
       }
 
       popUpMessage("Weapons Upgraded!")
@@ -203,11 +235,27 @@ function WaveMangaer(){
         game.player.inv.secWeaponSlot = weapons["Pistol+3"];
       }
 
+      if(game.player.inv.selectedItem === weapons["Shotgun+2"]){
+        game.player.inv.selectedItem = weapons["Shotgun+3"];
+      }
+      if(game.player.inv.selectedItem === weapons["AssaultRifle+2"]){
+        game.player.inv.selectedItem = weapons["AssaultRifle+3"];
+      }
+      if(game.player.inv.selectedItem === weapons["Sniper+2"]){
+        game.player.inv.selectedItem = weapons["Sniper+3"];
+      }
+      if(game.player.inv.selectedItem === weapons["Minigun+2"]){
+        game.player.inv.selectedItem = weapons["Minigun+3"];
+      }
+      if(game.player.inv.selectedItem === weapons["Pistol+2"]){
+        game.player.inv.selectedItem = weapons["Pistol+3"];
+      }
+
       if(game.player.inv.selectedWeaponSlot == 1){
         game.player.currentWeapon = game.player.inv.mainWeaponSlot;
       }
       else{
-        game.player.currentWeapon = game.player.inv.selectedWeaponSlot;
+        game.player.currentWeapon = game.player.inv.secWeaponSlot;
       }
 
       popUpMessage("Weapons Upgraded!")
@@ -252,11 +300,27 @@ function WaveMangaer(){
         game.player.inv.secWeaponSlot = weapons["Pistol+4"];
       }
 
+      if(game.player.inv.selectedItem === weapons["Shotgun+3"]){
+        game.player.inv.selectedItem = weapons["Shotgun+4"];
+      }
+      if(game.player.inv.selectedItem === weapons["AssaultRifle+3"]){
+        game.player.inv.selectedItem = weapons["AssaultRifle+4"];
+      }
+      if(game.player.inv.selectedItem === weapons["Sniper+3"]){
+        game.player.inv.selectedItem = weapons["Sniper+4"];
+      }
+      if(game.player.inv.selectedItem === weapons["Minigun+3"]){
+        game.player.inv.selectedItem = weapons["Minigun+4"];
+      }
+      if(game.player.inv.selectedItem === weapons["Pistol+3"]){
+        game.player.inv.selectedItem = weapons["Pistol+4"];
+      }
+
       if(game.player.inv.selectedWeaponSlot == 1){
         game.player.currentWeapon = game.player.inv.mainWeaponSlot;
       }
       else{
-        game.player.currentWeapon = game.player.inv.selectedWeaponSlot;
+        game.player.currentWeapon = game.player.inv.secWeaponSlot;
       }
 
       popUpMessage("Weapons Upgraded!")
@@ -293,11 +357,27 @@ function WaveMangaer(){
         game.player.inv.secWeaponSlot = weapons["Pistol+5"];
       }
 
+      if(game.player.inv.selectedItem === weapons["Shotgun+4"]){
+        game.player.inv.selectedItem = weapons["Shotgun+5"];
+      }
+      if(game.player.inv.selectedItem === weapons["AssaultRifle+4"]){
+        game.player.inv.selectedItem = weapons["AssaultRifle+5"];
+      }
+      if(game.player.inv.selectedItem === weapons["Sniper+4"]){
+        game.player.inv.selectedItem = weapons["Sniper+5"];
+      }
+      if(game.player.inv.selectedItem === weapons["Minigun+4"]){
+        game.player.inv.selectedItem = weapons["Minigun+5"];
+      }
+      if(game.player.inv.selectedItem === weapons["Pistol+4"]){
+        game.player.inv.selectedItem = weapons["Pistol+5"];
+      }
+
       if(game.player.inv.selectedWeaponSlot == 1){
         game.player.currentWeapon = game.player.inv.mainWeaponSlot;
       }
       else{
-        game.player.currentWeapon = game.player.inv.selectedWeaponSlot;
+        game.player.currentWeapon = game.player.inv.secWeaponSlot;
       }
 
       popUpMessage("Weapons Upgraded!")
