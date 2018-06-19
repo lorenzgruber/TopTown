@@ -47,14 +47,14 @@ function mouseWheel(event) {
   if(event.delta < 0){
     game.player.inv.selectedWeaponSlot --;
     if(game.player.inv.selectedWeaponSlot < 0){
-      game.player.inv.selectedWeaponSlot = 4;
+      game.player.inv.selectedWeaponSlot = 0;
     }
 
   }
   else{
     game.player.inv.selectedWeaponSlot ++;
-    if(game.player.inv.selectedWeaponSlot > 4){
-      game.player.inv.selectedWeaponSlot = 0;
+    if(game.player.inv.selectedWeaponSlot > 1){
+      game.player.inv.selectedWeaponSlot = 1;
     }
   }
   game.player.inv.selectWeapon(game.player.inv.selectedWeaponSlot);
