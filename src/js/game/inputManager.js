@@ -46,15 +46,15 @@ function mouseReleased(){
 function mouseWheel(event) {
   if(event.delta < 0){
     game.player.inv.selectedWeaponSlot --;
-    if(game.player.inv.selectedWeaponSlot < 0){
-      game.player.inv.selectedWeaponSlot = 0;
+    if(game.player.inv.selectedWeaponSlot < 1){
+      game.player.inv.selectedWeaponSlot = 1;
     }
 
   }
   else{
     game.player.inv.selectedWeaponSlot ++;
-    if(game.player.inv.selectedWeaponSlot > 1){
-      game.player.inv.selectedWeaponSlot = 1;
+    if(game.player.inv.selectedWeaponSlot > 2){
+      game.player.inv.selectedWeaponSlot = 2;
     }
   }
   game.player.inv.selectWeapon(game.player.inv.selectedWeaponSlot);
