@@ -164,12 +164,26 @@ function drawMinimap() {
   strokeWeight(5);
   rect(0, 0, 2 * game.worldSize.x * scale + 5, 2 * game.worldSize.y * scale + 5);
   pop();
-  push();
-  fill(255, 0, 0);
   for (var i = 0; i < game.enemies.length; i++) {
-    rect(game.enemies[i].pos.x * scale, game.enemies[i].pos.y * scale, game.enemies[i].size * scale * 2, game.enemies[i].size * scale * 2);
+    if(game.enemies[i].type == "Regular"){
+      push();
+      fill(0, 112, 59);
+      rect(game.enemies[i].pos.x * scale, game.enemies[i].pos.y * scale, game.enemies[i].size * scale * 2, game.enemies[i].size * scale * 2);
+      pop();
+    }
+    if(game.enemies[i].type == "Spitter"){
+      push();
+      fill(249, 186, 119);
+      rect(game.enemies[i].pos.x * scale, game.enemies[i].pos.y * scale, game.enemies[i].size * scale * 2, game.enemies[i].size * scale * 2);
+      pop();
+    }
+    if(game.enemies[i].type == "Giant"){
+      push();
+      fill(154, 10, 81); 
+      rect(game.enemies[i].pos.x * scale, game.enemies[i].pos.y * scale, game.enemies[i].size * scale * 2 * 0.8, game.enemies[i].size * scale * 2 * 0.8);
+      pop();
+    }
   }
-  pop();
   push();
   fill(255);
   rect(game.player.pos.x * scale, game.player.pos.y * scale, game.player.size * scale * 2, game.player.size * scale * 2);
