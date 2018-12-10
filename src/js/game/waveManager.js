@@ -68,6 +68,8 @@ function WaveMangaer(){
     game.nexus.health = game.nexus.initalHealth;
     this.prevWavePlayer = game.player;
     this.showNextWaveReminder();
+
+    game.saveManager.save();
   }
 
   this.waveEvents = function(){
@@ -370,7 +372,7 @@ function WaveMangaer(){
         game.player.inv.selectedItem = weapons["Minigun+5"];
       }
       if(game.player.inv.selectedItem === weapons["Pistol+4"]){
-        game.player.inv.selectedItem = weapons["Pistol+5"];
+        game.player.inv.selectedItem = weapons["Pistol+5   "];
       }
 
       if(game.player.inv.selectedWeaponSlot == 1){

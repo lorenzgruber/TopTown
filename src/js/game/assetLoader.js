@@ -10,27 +10,27 @@ var shopItems = [];
 
 function loadImages(){
   nexusImg = new Image();
-  nexusImg.src = "../res/nexus2.png";
+  nexusImg.src = "res/nexus2.png";
 
   turretImg = new Image();
-  turretImg.src = "../res/turret.png"
+  turretImg.src = "res/turret.png"
 
   slimeSpit = new Image();
-  slimeSpit.src = "../res/slimeSpit2.png"
+  slimeSpit.src = "res/slimeSpit2.png"
 
   for(var i = 0; i < 3; i++){
     playerImg.push(new Image);
-    playerImg[i].src = "../res/player_"+(i+1)+".png";
+    playerImg[i].src = "res/player_"+(i+1)+".png";
   }
 
   for (var i = 0; i < 4; i++) {
     enemyImg.push(new Image);
-    enemyImg[i].src = "../res/normal_zombie_"+(i+1)+".png";
+    enemyImg[i].src = "res/normal_zombie_"+(i+1)+".png";
   }
 
   for (var i = 0; i < 4; i++) {
     giantEnemyImg.push(new Image);
-    giantEnemyImg[i].src = "../res/giant_zombie_"+(i+1)+".png";
+    giantEnemyImg[i].src = "res/giant_zombie_"+(i+1)+".png";
   }
 }
 

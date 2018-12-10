@@ -17,6 +17,11 @@ function setup() {
 
   game = new Game();
 
+  if(localStorage["saveData"] != null){
+    game.saveManager.load();
+    game.saveManager.setGame();
+  }
+
   devTools = new DevTools();
   devTools.init();
 }

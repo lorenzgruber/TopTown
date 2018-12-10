@@ -245,5 +245,7 @@ function Inventory(){
       document.getElementById("secWeapon").setAttribute("onclick", "");
     }
     document.getElementById('secWeapon').innerHTML = secWeaponSlot;
+
+    game.saveManager.save();
   }
 }

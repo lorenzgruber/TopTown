@@ -91,7 +91,7 @@ img{
 }
 
 .inventoryItems h3, .itemInfo h3 {
-  font-size: 1vw;
+  font-size: 0.9vw;
   margin-bottom: 0.5vw;
 }
 
@@ -168,22 +168,30 @@ img{
 }
 
 button{
-  background: transparent;
-  border: .2vw solid rgb(200,200,200);
+  background: rgb(0,0,0);
+  border: .2vw solid white;
   padding: 0.8vw;
   font-size: .7vw;
-  color: rgb(200,200,200);
-  transition: 0.3s;
+  color: white;
+  transition: 0.2s;
   margin-right: 3vw;
   cursor: pointer;
+  bottom: 5vw;
+  position: absolute;
+  box-shadow: 0 .4vw 0 rgb(175,175,175);
 }
 button:hover{
   color: white;
   border-color: white;
-  background-color: rgb(40,40,40);
+  box-shadow: 0 .25vw 0 rgb(175,175,175);
+  bottom: 4.85vw;
+  /* background-color: rgba(255,255,255,0.5); */
+
 }
 button:focus {
   outline:0;
+  box-shadow: 0 .15vw 0 rgb(175,175,175);
+  bottom: 4.75vw;
 }
 .activeButton{
   color: white;

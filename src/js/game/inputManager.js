@@ -33,7 +33,7 @@ function keyPressed(){
   }
 
   if(game.gameOver){
-    game.reset();
+    game.saveManager.setGame();
   }
 }
 
@@ -44,18 +44,23 @@ function mouseReleased(){
 }
 
 function mouseWheel(event) {
-  if(event.delta < 0){
-    game.player.inv.selectedWeaponSlot --;
-    if(game.player.inv.selectedWeaponSlot < 1){
-      game.player.inv.selectedWeaponSlot = 1;
-    }
+  if(!game.player.inv.showing){
+    var prevSlot = game.player.inv.selectedWeaponSlot;
+    if(event.delta < 0){
+      game.player.inv.selectedWeaponSlot --;
+      if(game.player.inv.selectedWeaponSlot < 1){
+        game.player.inv.selectedWeaponSlot = 1;
+      }
 
-  }
-  else{
-    game.player.inv.selectedWeaponSlot ++;
-    if(game.player.inv.selectedWeaponSlot > 2){
-      game.player.inv.selectedWeaponSlot = 2;
+    }
+    else{
+      game.player.inv.selectedWeaponSlot ++;
+      if(game.player.inv.selectedWeaponSlot > 2){
+        game.player.inv.selectedWeaponSlot = 2;
+      }
+    }
+    if(game.player.inv.selectedWeaponSlot != prevSlot){
+      game.player.inv.selectWeapon(game.player.inv.selectedWeaponSlot);
     }
   }
-  game.player.inv.selectWeapon(game.player.inv.selectedWeaponSlot);
 }

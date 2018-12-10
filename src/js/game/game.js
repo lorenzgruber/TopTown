@@ -1,4 +1,5 @@
 function Game(){
+  this.saveManager = new SaveManager();
   this.waveManager = new WaveMangaer();
   this.nexus = new Nexus(0, 0);
   this.player = new Player(0, this.nexus.size);
@@ -10,9 +11,6 @@ function Game(){
   this.worldSize = createVector(1500,1500);
   this.camera = new Camera(this.player, 1);
   this.gameOver = false;
-
-
-
 
   this.waveManager.startNextWave();
 
