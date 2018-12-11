@@ -3,71 +3,74 @@ function drawHUD() {
 }
 
 function drawHealthBar() {
-  var col = color(200);
-  var healthBarLength = map(game.player.health, 0, game.player.initalHealth, 1, width / 4);
+  var col = color(255);
+  var healthBarLength = map(game.player.health, 0, game.player.initalHealth, 1, width / 4 - 10);
   if (healthBarLength < 0) {
     healthBarLength = 0;
   }
 
   if (healthBarLength < width / 4 * 0.5) {
-    col = color(200, 140, 50);
+    col = color(255, 159, 64);
   }
   if (healthBarLength < width / 4 * 0.25) {
-    col = color(200, 60, 40);
+    col = color(180, 22, 50);
   }
 
   push();
 
-  fill(col)
-  rect(game.camera.pos.x - width / 8, game.camera.pos.y + height / 2 - 80, healthBarLength, 50);
-
-  pop();
-  push();
-
-  noFill();
-  stroke(100);
+  fill(color("rgba(0,0,0,0.5)"));
+  stroke(93, 74, 106);
   strokeWeight(10);
   rect(game.camera.pos.x - width / 8, game.camera.pos.y + height / 2 - 80, width / 4, 50);
 
 
   pop();
+
+  push();
+
+  fill(col)
+  rect(game.camera.pos.x - width / 8 + 5, game.camera.pos.y + height / 2 - 80, healthBarLength, 45);
+
+  pop();
 }
 
 function drawNexusHealthBar() {
-  var healthBarLength = map(game.nexus.health, 0, game.nexus.initalHealth, 1, width / 4);
-  var col = color('#ef2d6d');
+  var healthBarLength = map(game.nexus.health, 0, game.nexus.initalHealth, 1, width / 4 - 10);
+  var col = color(241, 58, 104);
 
   if (healthBarLength < 0) {
     healthBarLength = 0;
   }
 
   if (healthBarLength < width / 4 * 0.5) {
-    col = color(200, 140, 50);
+    col = color(255, 159, 64);
   }
   if (healthBarLength < width / 4 * 0.25) {
-    col = color(200, 60, 40);
+    col = color(180, 22, 50);
   }
 
   push();
 
-  fill(col)
-  rect(game.camera.pos.x - width / 8, game.camera.pos.y + height / 2 - 100, healthBarLength, 20);
-
-  pop();
-  push();
-
-  noFill();
-  stroke(100);
+  fill(color("rgba(0,0,0,0.5)"));
+  stroke(93, 74, 106);
   strokeWeight(10);
   rect(game.camera.pos.x - width / 8, game.camera.pos.y + height / 2 - 100, width / 4, 20);
 
 
   pop();
+
+  push();
+
+  fill(col)
+  rect(game.camera.pos.x - width / 8 + 5, game.camera.pos.y + height / 2 - 95, healthBarLength, 10);
+
+  pop();
+
 }
 
 function drawDodgeMeter() {
   var col = color(255);
-  var dodgeMeterLength = map(game.player.timeFromLastDodge, 0, game.player.dodgeDelay, -1, -70);
+  var dodgeMeterLength = map(game.player.timeFromLastDodge, 0, game.player.dodgeDelay, -1, -60);
 
   if (game.player.timeFromLastDodge == game.player.dodgeDelay) {
     col = color(110, 230, 255);
@@ -75,17 +78,18 @@ function drawDodgeMeter() {
 
   push();
 
-  fill(col)
-  rect(game.camera.pos.x - width / 8 - 40, game.camera.pos.y + height / 2 - 30, 20, dodgeMeterLength);
-
-  pop();
-  push();
-
-  noFill();
-  stroke(100);
+  fill(color("rgba(0,0,0,0.5)"));
+  stroke(93, 74, 106);
   strokeWeight(10);
   rect(game.camera.pos.x - width / 8 - 40, game.camera.pos.y + height / 2 - 30, 20, -70);
 
+
+  pop();
+
+  push();
+
+  fill(col)
+  rect(game.camera.pos.x - width / 8 - 35, game.camera.pos.y + height / 2 - 35, 10, dodgeMeterLength);
 
   pop();
 }
@@ -110,27 +114,29 @@ function drawGameOverScreen() {
 
 function drawFireRateMeter() {
   var col = color(255);
-  var fireRateMeterLength = map(game.player.timeFromLastShot, 0, game.player.currentWeapon.fireRate, -1, -70);
+  var fireRateMeterLength = map(game.player.timeFromLastShot, 0, game.player.currentWeapon.fireRate, -1, -60);
 
   if (game.player.timeFromLastShot == game.player.currentWeapon.fireRate) {
-    col = color(255, 170, 0);
+    col = color(255, 159, 64);
   }
 
   push();
 
-  fill(col)
-  rect(game.camera.pos.x + width / 8 + 20, game.camera.pos.y + height / 2 - 30, 20, fireRateMeterLength);
-
-  pop();
-  push();
-
-  noFill();
-  stroke(100);
+  fill(color("rgba(0,0,0,0.5)"));
+  stroke(93, 74, 106);
   strokeWeight(10);
   rect(game.camera.pos.x + width / 8 + 20, game.camera.pos.y + height / 2 - 30, 20, -70);
 
 
   pop();
+
+  push();
+
+  fill(col)
+  rect(game.camera.pos.x + width / 8 + 25, game.camera.pos.y + height / 2 - 35, 10, fireRateMeterLength);
+
+  pop();
+
 }
 
 function drawGameOverScreen() {
@@ -167,19 +173,22 @@ function drawMinimap() {
   for (var i = 0; i < game.enemies.length; i++) {
     if(game.enemies[i].type == "Regular"){
       push();
-      fill(0, 112, 59);
+      fill(175, 246, 128);
+      // rgb(175, 246, 128)
       rect(game.enemies[i].pos.x * scale, game.enemies[i].pos.y * scale, game.enemies[i].size * scale * 2, game.enemies[i].size * scale * 2);
       pop();
     }
     if(game.enemies[i].type == "Spitter"){
       push();
-      fill(249, 186, 119);
+      fill(255, 169, 50);
+      //rgb(255, 169, 50)
       rect(game.enemies[i].pos.x * scale, game.enemies[i].pos.y * scale, game.enemies[i].size * scale * 2, game.enemies[i].size * scale * 2);
       pop();
     }
     if(game.enemies[i].type == "Giant"){
       push();
-      fill(154, 10, 81); 
+      fill(198, 7, 101);
+      // rgb(198, 7, 101)
       rect(game.enemies[i].pos.x * scale, game.enemies[i].pos.y * scale, game.enemies[i].size * scale * 2 * 0.8, game.enemies[i].size * scale * 2 * 0.8);
       pop();
     }
@@ -189,8 +198,11 @@ function drawMinimap() {
   rect(game.player.pos.x * scale, game.player.pos.y * scale, game.player.size * scale * 2, game.player.size * scale * 2);
   pop();
   push();
-  fill(180, 100, 255);
-  rect(game.nexus.pos.x * scale, game.nexus.pos.y * scale, game.nexus.size * scale, game.nexus.size * scale);
+  strokeWeight(3);
+  stroke(255);
+  fill(241, 58, 104);
+  // rgb(241, 58, 104)
+  rect(game.nexus.pos.x * scale, game.nexus.pos.y * scale, game.nexus.size * scale * 1.2, game.nexus.size * scale * 1.2);
   pop();
   pop();
 }
@@ -238,21 +250,22 @@ function drawMag() {
 function drawReloadBar() {
   if (game.player.currentWeapon.reloading) {
 
-    var col = color(255, 170, 0);
-    var reloadBarLength = map(game.player.currentWeapon.timeFromLastReload, 0, game.player.currentWeapon.reloadTime, 1, width / 4 + 80);
+    var col = color(255, 159, 64);
+    var reloadBarLength = map(game.player.currentWeapon.timeFromLastReload, 0, game.player.currentWeapon.reloadTime, 1, width / 4 + 70);
+
+    push();
+
+    stroke(72, 58, 82);
+    strokeWeight(10);
+    fill(color("rgba(0,0,0,0.5)"));
+    rect(game.camera.pos.x - width / 8 - 40, game.camera.pos.y + height / 2 - 135, width / 4 + 80, 15);
+
+    pop();
 
     push();
 
     fill(col);
-    rect(game.camera.pos.x - width / 8 - 40, game.camera.pos.y + height / 2 - 135, reloadBarLength, 15);
-
-    pop();
-    push();
-
-    stroke(100);
-    strokeWeight(10);
-    noFill();
-    rect(game.camera.pos.x - width / 8 - 40, game.camera.pos.y + height / 2 - 135, width / 4 + 80, 15);
+    rect(game.camera.pos.x - width / 8 - 35, game.camera.pos.y + height / 2 - 130, reloadBarLength, 5);
 
     pop();
   }

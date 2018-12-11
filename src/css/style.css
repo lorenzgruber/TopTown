@@ -60,7 +60,7 @@ img{
   width: 75vw;
   height: 40vw;
   color: white;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
 .inventoryItems{
@@ -167,10 +167,39 @@ img{
   float: right;
 }
 
-button{
+/* button{
   background: rgb(0,0,0);
   border: .2vw solid white;
   padding: 0.8vw;
+  font-size: .7vw;
+  color: white;
+  transition: 0.3s;
+  margin-right: 3vw;
+  cursor: pointer;
+  bottom: 5vw;
+  position: absolute;
+  box-shadow: 0 0 1vw rgba(255,255,255,0), inset 0 0 1vw rgba(255,255,255,0);
+}
+button:hover{
+  color: white;
+  border-color: white;
+  box-shadow: 0 0 1vw rgba(255,255,255,0.5), inset 0 0 1vw rgba(255,255,255,0.5);
+  text-shadow: 0 0 1vw rgba(255,255,255,1);
+  /* background-color: rgba(255,255,255,0.5); */
+
+/* }
+button:focus {
+  outline:0;
+  box-shadow: 0 0 1.5vw rgba(255,255,255,0.5), inset 0 0 1.5vw rgba(255,255,255,0.5);
+}  */
+
+button{
+  background-image: linear-gradient(0deg, rgb(246, 124, 166), rgb(254, 140, 140));
+  background-color:  rgb(233, 99, 137);
+  border: 0;
+  border-radius: .3vw;
+  outline: 0;
+  padding: 1vw;
   font-size: .7vw;
   color: white;
   transition: 0.2s;
@@ -178,21 +207,21 @@ button{
   cursor: pointer;
   bottom: 5vw;
   position: absolute;
-  box-shadow: 0 .4vw 0 rgb(175,175,175);
+  box-shadow: 0 .45vw 0 rgb(145, 86, 113);
 }
 button:hover{
-  color: white;
-  border-color: white;
-  box-shadow: 0 .25vw 0 rgb(175,175,175);
-  bottom: 4.85vw;
+  box-shadow: 0 .65vw 0 rgb(145, 86, 113);
+  bottom: 5.2vw;
+  text-shadow: 0 0 2vw rgba(255,255,255,1);
   /* background-color: rgba(255,255,255,0.5); */
 
 }
 button:focus {
   outline:0;
-  box-shadow: 0 .15vw 0 rgb(175,175,175);
-  bottom: 4.75vw;
+  box-shadow: 0 .25vw 0 rgb(145, 86, 113);
+  bottom: 4.8vw;
 }
+
 .activeButton{
   color: white;
   border-color: white;
@@ -332,11 +361,11 @@ button:focus {
     width: 0.5vw;
 }
 .shopItems::-webkit-scrollbar-thumb {
-  background-color: rgba(50,50,50,0.5);
+  background-color: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
 }
 .shopItems::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(50,50,50,1);
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 10px;
 }
 

@@ -559,7 +559,7 @@ var data = {
 		{
 			"name": "Lederhosn",
 			"type": "hat",
-			"description": "You want to fight zombies, but still look classy? Then this is for you. Fight like a sir!",
+			"description": "A Lederhosn fian Itti!",
 			"img": "res/items/hats/lederhosn_icon.png",
 			"ingameImg": "res/items/hats/lederhosn.png"
 		}
