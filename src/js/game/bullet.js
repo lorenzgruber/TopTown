@@ -49,16 +49,16 @@ function EnemyBullet(x,y,direction,velocity,damage){
   this.size = 70;
 
   this.update = function(){
-    this.move();
-    this.lifeTime --;
+      this.move();
+      this.lifeTime --;
   }
 
   this.render = function(){
-    push();
-    translate(this.pos.x, this.pos.y);
-    rotate(this.vel.heading());
-    ctx.drawImage(slimeSpit, -this.size/2, -this.size/2, this.size, this.size);
-    pop();
+      push();
+      translate(this.pos.x, this.pos.y);
+      rotate(this.vel.heading());
+      ctx.drawImage(slimeSpit, -this.size/2, -this.size/2, this.size, this.size);
+      pop();  
   }
 
   this.move = function(){

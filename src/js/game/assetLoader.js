@@ -1,9 +1,11 @@
 var nexusImg;
 var turretImg;
 var slimeSpit;
+var slimeSplat;
 var playerImg = [];
 var enemyImg = [];
 var giantEnemyImg = [];
+var spitterEnemyImg = [];
 var weapons = [];
 var hats = [];
 var shopItems = [];
@@ -18,6 +20,9 @@ function loadImages(){
   slimeSpit = new Image();
   slimeSpit.src = "res/slimeSpit2.png"
 
+  slimeSplat = new Image();
+  slimeSplat.src = "res/slime_splat.png"
+
   for(var i = 0; i < 3; i++){
     playerImg.push(new Image);
     playerImg[i].src = "res/player_"+(i+1)+".png";
@@ -31,6 +36,11 @@ function loadImages(){
   for (var i = 0; i < 4; i++) {
     giantEnemyImg.push(new Image);
     giantEnemyImg[i].src = "res/giant_zombie_"+(i+1)+".png";
+  }
+
+  for (var i = 0; i < 3; i++) {
+    spitterEnemyImg.push(new Image);
+    spitterEnemyImg[i].src = "res/spitter_zombie_"+(i+1)+".png";
   }
 }
 

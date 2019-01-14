@@ -43,8 +43,16 @@ function DevTools() {
 
   this.update = function() {
     if (this.devInfoVisible) {
+      var amountParticles = 0;
+      for(i = 0; i < game.particleSystems.length; i++){
+        for(j = 0; j < game.particleSystems[i].particles.length; j++){
+          amountParticles ++;
+        }
+      }
+
       this.infoDiv.innerHTML =
-		    "Bullets rendered: " + game.bullets.length +
+        "Bullets rendered: " + game.bullets.length +
+        "<br>Particles rendered: " + amountParticles +
 		    "<br>X: " + round(game.player.pos.x) +
 		    "<br>Y: " + round(game.player.pos.y) +
 		    "<br>Vel: " + round(game.player.vel.mag()) +

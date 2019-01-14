@@ -138,6 +138,10 @@ img{
   width: 90% !important;
 }
 
+.equipped{
+  box-shadow: inset 3px 0 0 rgb(246, 124, 166);
+}
+
 .itemInfo li{
   padding: 5%;
   padding-bottom: 0;
@@ -151,11 +155,11 @@ img{
     width: 0.5vw;
 }
 .inventoryItems::-webkit-scrollbar-thumb {
-  background-color: rgba(50,50,50,0.5);
+  background-image: linear-gradient(0deg, rgb(246, 124, 166), rgb(254, 140, 140));
   border-radius: 10px;
+  transition: 0.3s;
 }
 .inventoryItems::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(50,50,50,1);
   border-radius: 10px;
 }
 
@@ -207,11 +211,13 @@ button{
   cursor: pointer;
   bottom: 5vw;
   position: absolute;
-  box-shadow: 0 .45vw 0 rgb(145, 86, 113);
+  box-shadow: 0 .5vw 0 rgb(145, 86, 113);
+  text-align: center;
+  width: 7vw;
 }
 button:hover{
-  box-shadow: 0 .65vw 0 rgb(145, 86, 113);
-  bottom: 5.2vw;
+  box-shadow: 0 .4vw 0 rgb(145, 86, 113);
+  bottom: 4.9vw;
   text-shadow: 0 0 2vw rgba(255,255,255,1);
   /* background-color: rgba(255,255,255,0.5); */
 
@@ -219,7 +225,7 @@ button:hover{
 button:focus {
   outline:0;
   box-shadow: 0 .25vw 0 rgb(145, 86, 113);
-  bottom: 4.8vw;
+  bottom: 4.75vw;
 }
 
 .activeButton{
@@ -232,12 +238,6 @@ button:focus {
   border-color: white;
   background-color: rgb(40,40,40);
 }
-
-.equipped{
-  box-shadow: inset 3px 0 0 rgb(200,200,200);
-}
-
-
 
 .inv-equipSlots{
   position: relative;
@@ -274,6 +274,27 @@ button:focus {
   background-color: rgba(255,255,255,0.05);
   padding: .5vw;
   transition: .3s;
+
+  /*
+  box-sizing: border-box;
+  border: 0;
+  border-left: solid 2px rgb(246, 124, 166);
+  */
+
+  /*
+  box-sizing: border-box;
+  border: 0;
+  border-left: 3px solid;
+    -webkit-border-image: 
+      -webkit-gradient(linear, 100% 0, 0 0, rgb(246, 124, 166), to(rgb(254, 140, 140))) 1 100%;
+    -webkit-border-image: 
+      -webkit-linear-gradient(bottom, rgb(246, 124, 166), rgb(254, 140, 140)) 1 100%;
+    -moz-border-image:
+      -moz-linear-gradient(bottom, rgb(246, 124, 166), rgb(254, 140, 140)) 1 100%;  
+    -o-border-image:
+      -o-linear-gradient(bottom, rgb(246, 124, 166), rgb(254, 140, 140)) 1 100%;
+    border-image:
+      linear-gradient(to bottom, rgb(246, 124, 166), rgb(254, 140, 140)) 1 100%; */
 }
 
 .grid-item p{
@@ -361,7 +382,7 @@ button:focus {
     width: 0.5vw;
 }
 .shopItems::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-image: linear-gradient(90deg, rgb(246, 124, 166), rgb(254, 140, 140));
   border-radius: 10px;
 }
 .shopItems::-webkit-scrollbar-thumb:hover {

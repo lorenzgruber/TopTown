@@ -10,7 +10,7 @@ function Enemy(x, y, img, power, type) {
   this.range = 700;
   this.dir = createVector(0, 0);
 
-  this.col = color(random(45, 85), random(90, 130), random(10, 50))
+  this.col = color(random(45, 85), random(90, 130), random(10, 50));
   this.currentCol = this.col;
 
   this.seesPlayer = false;
@@ -138,7 +138,7 @@ function Enemy(x, y, img, power, type) {
 
     push();
 
-    var cb = color('#1e3f1f')
+    var cb = color('#459979')
     fill(cb);
     rectMode(CENTER);
     rect(this.pos.x + 5, this.pos.y + this.size / 2 + 5, healthBarLength, 10);
@@ -147,7 +147,7 @@ function Enemy(x, y, img, power, type) {
 
     push();
 
-    var c = color('#a9d269')
+    var c = color('#F2FF78')
     fill(c);
     rectMode(CENTER);
     rect(this.pos.x, this.pos.y + this.size / 2, healthBarLength, 10);
@@ -185,8 +185,9 @@ function EnemySpitter(x, y, img, power, type) {
   this.acc = createVector(0, 0);
   this.range = 700;
   this.dir = createVector(0, 0);
+  this.img = img;
 
-  this.col = color(random(90, 130), random(80, 120), random(10, 50))
+  this.col = color(random(175, 205), random(125, 155), random(25, 55))
   this.currentCol = this.col;
 
   this.seesPlayer = false;
@@ -227,6 +228,17 @@ function EnemySpitter(x, y, img, power, type) {
     if (this.timeFromLastShot < this.fireRate) {
         this.timeFromLastShot++;
     }
+
+    if(this.timeFromLastShot < 35){   
+      if(this.dir.heading() >= -PI/2 && this.dir.heading() <= PI/2){
+        this.img = spitterEnemyImg[1];
+      }else{
+        this.img = spitterEnemyImg[2];
+      }
+    }
+    else{
+      this.img = spitterEnemyImg[0];
+    }
   }
 
   this.render = function() {
@@ -252,7 +264,7 @@ function EnemySpitter(x, y, img, power, type) {
     else{
       rotate(this.dir.heading() + PI );
     }
-    ctx.drawImage(img, -this.size/2, -this.size/2, this.size, this.size);
+    ctx.drawImage(this.img, -this.size/2, -this.size/2, this.size, this.size);
 
     if(this.hat != -1){
       if(this.dir.heading() >= -PI/2 && this.dir.heading() <= PI/2){
@@ -328,7 +340,7 @@ function EnemySpitter(x, y, img, power, type) {
 
     push();
 
-    var cb = color('#1e3f1f')
+    var cb = color('#994444')
     fill(cb);
     rectMode(CENTER);
     rect(this.pos.x + 5, this.pos.y + this.size / 2 + 5, healthBarLength, 10);
@@ -337,7 +349,7 @@ function EnemySpitter(x, y, img, power, type) {
 
     push();
 
-    var c = color('#a9d269')
+    var c = color('#FFAF66')
     fill(c);
     rectMode(CENTER);
     rect(this.pos.x, this.pos.y + this.size / 2, healthBarLength, 10);
@@ -499,7 +511,7 @@ function EnemyGiant(x, y, img, power, type) {
 
     push();
 
-    var cb = color('#1e3f1f')
+    var cb = color('#894599')
     fill(cb);
     rectMode(CENTER);
     rect(this.pos.x + 5, this.pos.y + this.size / 2 + 5, healthBarLength, 10);
@@ -508,7 +520,7 @@ function EnemyGiant(x, y, img, power, type) {
 
     push();
 
-    var c = color('#a9d269')
+    var c = color('#FF66A1')
     fill(c);
     rectMode(CENTER);
     rect(this.pos.x, this.pos.y + this.size / 2, healthBarLength, 10);

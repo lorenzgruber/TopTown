@@ -7,9 +7,10 @@ function Game(){
   this.enemies = [];
   this.turrets = [];
   this.bullets = [];
+  this.particleSystems = [];
   this.enemyBullets = [];
   this.worldSize = createVector(1500,1500);
-  this.camera = new Camera(this.player, 1);
+  this.camera = new Camera(this.player, 0.4);
   this.gameOver = false;
 
   this.waveManager.startNextWave();
@@ -19,6 +20,14 @@ function Game(){
 
     if (this.player.health < 0 || this.nexus.health < 0) {
       this.gameOver = true;
+    }
+
+    for(i = this.particleSystems.length - 1; i >= 0 ; i--){
+      this.particleSystems[i].update();
+
+      if(this.particleSystems[i].dead){
+        this.particleSystems.splice(i, 1);
+      }
     }
 
     for (i = 0; i < this.bullets.length; i++) {
@@ -48,7 +57,7 @@ function Game(){
       }
 
       if(hit){
-        this.enemyBullets.splice(i, 1);
+        this.enemyBullets.splice(i,1);
       }
     }
 
@@ -81,12 +90,14 @@ function Game(){
 
       for (j = 0; j < this.bullets.length; j++) {
         if (detectCollisionPointRect(this.bullets[j], this.enemies[i])) {
+          this.particleSystems.push(new EnemyHitEffect(this.bullets[j].pos.x, this.bullets[j].pos.y, this.bullets[j].vel.heading(), this.bullets[j].dmg));
           this.bullets[j].hit(this.enemies[i]);
           this.bullets.splice(j, 1);
         }
       }
 
       if (this.enemies[i].dead) {
+        this.particleSystems.push(new EnemyDeathEffect(this.enemies[i].pos.x, this.enemies[i].pos.y, this.enemies[i].size));
         this.enemies.splice(i, 1);
         this.waveManager.enemiesRemaining --;
       }
@@ -118,6 +129,10 @@ function Game(){
 
     drawGrid();
     drawWorldBounds();
+
+    for (var i = 0; i < this.particleSystems.length; i++) {
+      this.particleSystems[i].render();
+    }
 
     for (var i = 0; i < this.bullets.length; i++) {
       this.bullets[i].render();
@@ -165,7 +180,7 @@ function Game(){
     this.bullets = [];
     this.enemyBullets = [];
     this.worldSize = createVector(1500,1500);
-    this.camera = new Camera(this.player, 1);
+    this.camera = new Camera(this.player, 0.3);
     this.gameOver = false;
     this.waveManager.startNextWave();
   }

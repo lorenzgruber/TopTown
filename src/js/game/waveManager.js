@@ -36,7 +36,7 @@ function WaveMangaer(){
             game.enemies.push(new EnemyGiant(spawnPoint.x, spawnPoint.y, giantEnemyImg[round(random(0,3))], this.enemiePowerMultiplyer, "Giant"));
           }
           else if(percentage > 15 && percentage <= 50 && this.wave >= 5){
-            game.enemies.push(new EnemySpitter(spawnPoint.x, spawnPoint.y, enemyImg[round(random(0,3))], this.enemiePowerMultiplyer, "Spitter"));
+            game.enemies.push(new EnemySpitter(spawnPoint.x, spawnPoint.y, spitterEnemyImg[0], this.enemiePowerMultiplyer, "Spitter"));
           }
           else{
             game.enemies.push(new Enemy(spawnPoint.x, spawnPoint.y, enemyImg[round(random(0,3))], this.enemiePowerMultiplyer, "Regular"));

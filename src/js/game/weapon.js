@@ -33,6 +33,7 @@ function Weapon(name, fireRate, precision, damage, knockback, fireMode, bulletsP
           this.mouseReleased = false;
         }
       }
+      game.particleSystems.push(new WeaponFireEffect(playerX, playerY, createVector(mouseX - width / 2, mouseY - height / 2), this.dmg));
       this.bulletsinMag --;
       var force = p5.Vector.fromAngle(dir.heading());
       force.setMag(-this.knockback);
