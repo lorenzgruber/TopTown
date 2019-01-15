@@ -1,4 +1,4 @@
-function Weapon(name, fireRate, precision, damage, knockback, fireMode, bulletsPerShot, bulletVelocity, bulletLifeTime, magazinSize, reloadTime, type, description, img) {
+function Weapon(name, fireRate, precision, damage, knockback, fireMode, bulletsPerShot, bulletVelocity, bulletLifeTime, magazinSize, reloadTime, type, description, img, bulletImg) {
   this.name = name;
   this.fireRate = fireRate;
   this.prec = precision;
@@ -21,14 +21,14 @@ function Weapon(name, fireRate, precision, damage, knockback, fireMode, bulletsP
   this.description = description;
 
   this.img = img;
+  this.bulletImg = bulletImg;
 
   this.fire = function(playerX, playerY, cursorX, cursorY) {
   if(this.mouseReleased){
     if(!this.reloading){
       for (i = 0; i < this.bps; i++) {
         var dir = createVector(mouseX - width / 2, mouseY - height / 2);
-        var col = color(random(200, 255), random(130, 200), 0);
-        game.bullets.push(new Bullet(playerX, playerY, dir, random(this.bVel-2, this.bVel+2), this.prec, this.bLifeTime, this.dmg, col));
+        game.bullets.push(new Bullet(playerX, playerY, dir, random(this.bVel-2, this.bVel+2), this.prec, this.bLifeTime, this.dmg, this.bulletImg));
         if(this.fireMode == "semi"){
           this.mouseReleased = false;
         }
@@ -38,6 +38,13 @@ function Weapon(name, fireRate, precision, damage, knockback, fireMode, bulletsP
       var force = p5.Vector.fromAngle(dir.heading());
       force.setMag(-this.knockback);
       game.player.aplyForce(force);
+      if(force.mag() > 25){
+        force.setMag(25);
+      }
+      if(force.mag() < 15){
+        force.setMag(15);
+      }
+      game.camera.shake(force.mult(-0.3));
     }
     if(this.bulletsinMag <= 0 && !this.reloading){
       this.startReload();

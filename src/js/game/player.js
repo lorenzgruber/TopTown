@@ -169,6 +169,7 @@ function Player(x, y) {
 
       if(keyIsDown(32) && this.timeFromLastDodge >= this.dodgeDelay){
         this.timeFromLastDodge = 0;
+        //game.camera.dashZoom();
       }
       if(this.timeFromLastDodge < 10){
         var force = createVector(mouseX - width / 2, mouseY - height / 2);

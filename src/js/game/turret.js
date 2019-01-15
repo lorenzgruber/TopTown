@@ -62,9 +62,9 @@ function Turret(x,y){
 
   this.shoot = function(){
     if(this.target != 0 && this.timeFromLastShot >= this.fireRate){
-      var col = color(random(200,255), random(85,125), random(100,150))
-      game.bullets.push(new Bullet(this.pos.x, this.pos.y, this.getDirection(), this.bulletVel, this.prec, this.range, this.dmg, col));
+      game.bullets.push(new Bullet(this.pos.x, this.pos.y, this.getDirection(), this.bulletVel, this.prec, this.range, this.dmg, bullets["crystal"]));
       this.timeFromLastShot = 0;
+      game.particleSystems.push(new TurrentFireEffect(this.pos.x, this.pos.y, this.getDirection().heading() + PI));
     }
   }
 }

@@ -7,6 +7,7 @@ var enemyImg = [];
 var giantEnemyImg = [];
 var spitterEnemyImg = [];
 var weapons = [];
+var bullets = [];
 var hats = [];
 var shopItems = [];
 
@@ -22,6 +23,21 @@ function loadImages(){
 
   slimeSplat = new Image();
   slimeSplat.src = "res/slime_splat.png"
+
+  bullets["small"] = new Image();
+  bullets["small"].src = "res/small_bullet.png"
+
+  bullets["medium"] = new Image();
+  bullets["medium"].src = "res/medium_bullet.png"
+
+  bullets["large"] = new Image();
+  bullets["large"].src = "res/large_bullet.png"
+
+  bullets["shotgun"] = new Image();
+  bullets["shotgun"].src = "res/shotgun_bullet.png"
+
+  bullets["crystal"] = new Image();
+  bullets["crystal"].src = "res/crystal_bullet.png"
 
   for(var i = 0; i < 3; i++){
     playerImg.push(new Image);
@@ -47,7 +63,9 @@ function loadImages(){
 function loadData(){
   for (var i = 0; i < data.weapons.length; i++) {
     var img = new Image();
+    var bulletImg = new Image();
     img.src = data.weapons[i].img;
+    bulletImg.src = data.weapons[i].bulletImg;
     weapons[data.weapons[i].name.replace(/ /g,'')] =
       new Weapon(
         data.weapons[i].name,
@@ -63,7 +81,8 @@ function loadData(){
         data.weapons[i].reloadTime,
         data.weapons[i].type,
         data.weapons[i].description,
-        img);
+        img,
+        bulletImg);
   }
   for (var i = 0; i < Object.keys(data.hats).length; i++) {
     var img = new Image();

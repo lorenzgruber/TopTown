@@ -1,12 +1,14 @@
-function Bullet(x, y, direction, velocity, precision, lifeTime, damage, color) {
+function Bullet(x, y, direction, velocity, precision, lifeTime, damage, img) {
     this.pos = createVector(x, y);
+    this.originalPos = createVector(x, y);
     this.vel = direction;
     this.vel.normalize();
     this.vel.add(random(-precision, precision) * 0.01, random(-precision, precision) * 0.01);
     this.vel.setMag(velocity);
     this.lifeTime = lifeTime;
+    this.initLifeTime = lifeTime;
     this.dmg = damage;
-    this.col = color;
+    this.img = img;
 
     this.update = function () {
         this.move();
@@ -17,10 +19,26 @@ function Bullet(x, y, direction, velocity, precision, lifeTime, damage, color) {
         push();
 
         translate(this.pos.x, this.pos.y);
-        stroke(this.col);
-        strokeWeight(2);
-        rotate(this.vel.heading());
-        line(0, 0, 30, 0);
+        rotate(this.vel.heading() + PI/2);
+        ctx.drawImage(this.img, -this.img.naturalWidth/6, -this.img.naturalHeight/6, this.img.naturalWidth/3, this.img.naturalHeight/3);
+
+        pop();
+
+        push();
+        var opacity = map(this.lifeTime, this.initLifeTime, 0, 0.1, 0);
+        stroke(color("rgba(255,255,255,"+opacity+")"));
+        strokeWeight(5);
+
+        if(dist(this.originalPos.x, this.originalPos.y, this.pos.x, this.pos.y) < 200){
+            line(this.originalPos.x, this.originalPos.y, this.pos.x, this.pos.y);
+        }else{
+            var trail = createVector(this.vel.x, this.vel.y);
+            trail.setMag(-200);
+            var trailPoint = createVector(this.pos.x, this.pos.y);
+            trailPoint.add(trail);
+            line(trailPoint.x, trailPoint.y, this.pos.x, this.pos.y);
+        }
+        
 
         pop();
     }

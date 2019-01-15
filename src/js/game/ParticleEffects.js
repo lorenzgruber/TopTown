@@ -30,15 +30,19 @@ function Particle(x, y, dir, speed, size, color, timeToLive){
 function EnemyHitEffect(x, y, dir, damage){
     this.pos = createVector(x,y);
     this.dir = dir;
-    this.damage = map(damage, 0, 200, 2, 5);
-    this.col = [random(145, 185), random(190, 230), random(110, 150)];
-    //this.col = [random(200, 255), random(10, 50), 0];
+    this.damage = map(damage, 0, 200, 4, 5);
     this.particles = [];
 
     this.dead = false;
 
     for(i = 0; i < this.damage; i++){
-        this.particles.push(new Particle(this.pos.x, this.pos.y, this.dir, this.damage * 2, this.damage * 3, this.col, 20));
+        var rn = random(0,1);
+        if(rn < 0.1){
+            var col = [random(200, 255), random(10, 50), 0];
+        }else{
+            var col = [random(145, 185), random(190, 230), random(110, 150)];
+        }
+        this.particles.push(new Particle(this.pos.x, this.pos.y, this.dir, this.damage * 2, this.damage * 1.5, col, 20));
     }
 
     this.update = function(){
@@ -64,14 +68,53 @@ function EnemyHitEffect(x, y, dir, damage){
 function EnemyDeathEffect(x, y, size){
     this.pos = createVector(x,y);
     this.size = size * 0.1;
-    this.col = [random(145, 185), random(190, 230), random(110, 150)];
-    //this.col = [random(200, 255), random(10, 50), 0];
+    if(this.size > 15){
+        this.size = 15;
+    }
     this.particles = [];
 
     this.dead = false;
 
     for(i = 0; i < 10; i++){
-        this.particles.push(new Particle(this.pos.x, this.pos.y, random(-PI, PI), 5, this.size, this.col, 30));
+        var rn = random(0,1);
+        if(rn < 0.1){
+            var col = [random(200, 255), random(10, 50), 0];
+        }else{
+            var col = [random(145, 185), random(190, 230), random(110, 150)];
+        }
+        this.particles.push(new Particle(this.pos.x, this.pos.y, random(-PI, PI), 5, this.size, col, 30));
+    }
+
+    this.update = function(){
+        for(i = this.particles.length - 1; i >= 0; i--){
+            this.particles[i].update();
+
+            if(this.particles[i].dead){
+                this.particles.splice(i, 1);
+            }
+        }
+        if(this.particles.length <= 2){
+            this.dead = true;
+        }
+    }
+
+    this.render = function(){
+        for(i = 0; i < this.particles.length; i++){
+            this.particles[i].render();
+        }
+    }
+}
+
+function SpitterBallExplsion(x, y, dir){
+    this.pos = createVector(x,y);
+    this.dir = dir;
+    this.particles = [];
+
+    this.dead = false;
+
+    for(i = 0; i < 10; i++){
+        var col = [random(145, 185), random(240, 255), random(110, 150)];
+        this.particles.push(new Particle(this.pos.x, this.pos.y, this.dir, 7, 13, col, 20));
     }
 
     this.update = function(){
@@ -116,6 +159,70 @@ function WeaponFireEffect(x, y, dir, damage){
             }
         }
         if(this.particles.length <= 0){
+            this.dead = true;
+        }
+    }
+
+    this.render = function(){
+        for(i = 0; i < this.particles.length; i++){
+            this.particles[i].render();
+        }
+    }
+}
+
+function TurrentFireEffect(x, y, dir){
+    this.pos = createVector(x,y);
+    this.dir = dir;
+    this.particles = [];
+
+    this.dead = false;
+
+    for(i = 0; i < 5; i++){
+        var col = [255, random(135,175), random(150,200)];
+        this.particles.push(new Particle(this.pos.x, this.pos.y, this.dir, 5, 5, col, 20));
+    }
+
+    this.update = function(){
+        for(i = this.particles.length - 1; i >= 0; i--){
+            this.particles[i].update();
+
+            if(this.particles[i].dead){
+                this.particles.splice(i, 1);
+            }
+        }
+        if(this.particles.length <= 2){
+            this.dead = true;
+        }
+    }
+
+    this.render = function(){
+        for(i = 0; i < this.particles.length; i++){
+            this.particles[i].render();
+        }
+    }
+}
+
+function CrystalBulletExplosion(x, y, dir){
+    this.pos = createVector(x,y);
+    this.dir = dir;
+    this.particles = [];
+
+    this.dead = false;
+
+    for(i = 0; i < 3; i++){
+        var col = [255, random(135,175), random(150,200)];
+        this.particles.push(new Particle(this.pos.x, this.pos.y, this.dir, 15, 4, col, 20));
+    }
+
+    this.update = function(){
+        for(i = this.particles.length - 1; i >= 0; i--){
+            this.particles[i].update();
+
+            if(this.particles[i].dead){
+                this.particles.splice(i, 1);
+            }
+        }
+        if(this.particles.length <= 2){
             this.dead = true;
         }
     }

@@ -18,7 +18,8 @@ var data = {
 			"reloadTime": 150,
 			"type": "Main Weapon",
 			"description": "a strong and reliable weapon for close distance combat",
-			"img": "res/items/weapons/shotgun.png"
+			"img": "res/items/weapons/shotgun.png",
+			"bulletImg": "res/shotgun_bullet.png"
 		},
 		{
 			"name": "Shotgun +1",
@@ -34,7 +35,8 @@ var data = {
 			"reloadTime": 150,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the shotgun",
-			"img": "res/items/weapons/shotgun.png"
+			"img": "res/items/weapons/shotgun.png",
+			"bulletImg": "res/shotgun_bullet.png"
 		},
 		{
 			"name": "Shotgun +2",
@@ -50,7 +52,8 @@ var data = {
 			"reloadTime": 150,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the shotgun",
-			"img": "res/items/weapons/shotgun.png"
+			"img": "res/items/weapons/shotgun.png",
+			"bulletImg": "res/shotgun_bullet.png"
 		},
 		{
 			"name": "Shotgun +3",
@@ -66,7 +69,8 @@ var data = {
 			"reloadTime": 150,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the shotgun",
-			"img": "res/items/weapons/shotgun.png"
+			"img": "res/items/weapons/shotgun.png",
+			"bulletImg": "res/shotgun_bullet.png"
 		},
 		{
 			"name": "Shotgun +4",
@@ -82,7 +86,8 @@ var data = {
 			"reloadTime": 120,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the shotgun",
-			"img": "res/items/weapons/shotgun.png"
+			"img": "res/items/weapons/shotgun.png",
+			"bulletImg": "res/shotgun_bullet.png"
 		},
 		{
 			"name": "Shotgun +5",
@@ -98,7 +103,8 @@ var data = {
 			"reloadTime": 120,
 			"type": "Main Weapon",
 			"description": "The final version of the shotgun. Aim it at anything and it should be gone after you pull the trigger!",
-			"img": "res/items/weapons/shotgun.png"
+			"img": "res/items/weapons/shotgun.png",
+			"bulletImg": "res/shotgun_bullet.png"
 		},
 		{
 			"name": "Pistol",
@@ -114,7 +120,8 @@ var data = {
 			"reloadTime": 50,
 			"type": "Secondary Weapon",
 			"description": "a weak but fast weapon",
-			"img": "res/items/weapons/pistol.png"
+			"img": "res/items/weapons/pistol.png",
+			"bulletImg": "res/small_bullet.png"
 		},
 		{
 			"name": "Pistol +1",
@@ -130,7 +137,8 @@ var data = {
 			"reloadTime": 50,
 			"type": "Secondary Weapon",
 			"description": "an upgraded version of the pistol",
-			"img": "res/items/weapons/pistol.png"
+			"img": "res/items/weapons/pistol.png",
+			"bulletImg": "res/small_bullet.png"
 		},
 		{
 			"name": "Pistol +2",
@@ -146,7 +154,8 @@ var data = {
 			"reloadTime": 50,
 			"type": "Secondary Weapon",
 			"description": "an upgraded version of the pistol",
-			"img": "res/items/weapons/pistol.png"
+			"img": "res/items/weapons/pistol.png",
+			"bulletImg": "res/small_bullet.png"
 		},
 		{
 			"name": "Pistol +3",
@@ -162,7 +171,8 @@ var data = {
 			"reloadTime": 50,
 			"type": "Secondary Weapon",
 			"description": "an upgraded version of the pistol",
-			"img": "res/items/weapons/pistol.png"
+			"img": "res/items/weapons/pistol.png",
+			"bulletImg": "res/small_bullet.png"
 		},
 		{
 			"name": "Pistol +4",
@@ -178,7 +188,8 @@ var data = {
 			"reloadTime": 50,
 			"type": "Secondary Weapon",
 			"description": "an upgraded version of the pistol",
-			"img": "res/items/weapons/pistol.png"
+			"img": "res/items/weapons/pistol.png",
+			"bulletImg": "res/small_bullet.png"
 		},
 		{
 			"name": "Pistol +5",
@@ -194,7 +205,8 @@ var data = {
 			"reloadTime": 40,
 			"type": "Secondary Weapon",
 			"description": "Still pretty useless tbh",
-			"img": "res/items/weapons/pistol.png"
+			"img": "res/items/weapons/pistol.png",
+			"bulletImg": "res/small_bullet.png"
 		},
 		{
 			"name": "Assault Rifle",
@@ -210,7 +222,8 @@ var data = {
 			"reloadTime": 60,
 			"type": "Main Weapon",
 			"description": "a fast and medium damage weapon",
-			"img": "res/items/weapons/assault.png"
+			"img": "res/items/weapons/assault.png",
+			"bulletImg": "res/medium_bullet.png"
 		},
 		{
 			"name": "Assault Rifle +1",
@@ -226,7 +239,8 @@ var data = {
 			"reloadTime": 60,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the assault rifle",
-			"img": "res/items/weapons/assault.png"
+			"img": "res/items/weapons/assault.png",
+			"bulletImg": "res/medium_bullet.png"
 		},
 		{
 			"name": "Assault Rifle +2",
@@ -242,7 +256,8 @@ var data = {
 			"reloadTime": 60,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the assault rifle",
-			"img": "res/items/weapons/assault.png"
+			"img": "res/items/weapons/assault.png",
+			"bulletImg": "res/medium_bullet.png"
 		},
 		{
 			"name": "Assault Rifle +3",
@@ -258,7 +273,8 @@ var data = {
 			"reloadTime": 60,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the assault rifle",
-			"img": "res/items/weapons/assault.png"
+			"img": "res/items/weapons/assault.png",
+			"bulletImg": "res/medium_bullet.png"
 		},
 		{
 			"name": "Assault Rifle +4",
@@ -274,7 +290,8 @@ var data = {
 			"reloadTime": 60,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the assault rifle",
-			"img": "res/items/weapons/assault.png"
+			"img": "res/items/weapons/assault.png",
+			"bulletImg": "res/medium_bullet.png"
 		},
 		{
 			"name": "Assault Rifle +5",
@@ -290,7 +307,8 @@ var data = {
 			"reloadTime": 50,
 			"type": "Main Weapon",
 			"description": "I couldn`t come up with a cretive description for this one, but it's good... belive me!",
-			"img": "res/items/weapons/assault.png"
+			"img": "res/items/weapons/assault.png",
+			"bulletImg": "res/medium_bullet.png"
 		},
 		{
 			"name": "Sniper",
@@ -306,7 +324,8 @@ var data = {
 			"reloadTime": 100,
 			"type": "Main Weapon",
 			"description": "A very slow but extremely high damaging weapon",
-			"img": "res/items/weapons/sniper.png"
+			"img": "res/items/weapons/sniper.png",
+			"bulletImg": "res/large_bullet.png"
 		},
 		{
 			"name": "Sniper +1",
@@ -322,7 +341,8 @@ var data = {
 			"reloadTime": 100,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the sniper",
-			"img": "res/items/weapons/sniper.png"
+			"img": "res/items/weapons/sniper.png",
+			"bulletImg": "res/large_bullet.png"
 		},
 		{
 			"name": "Sniper +2",
@@ -338,7 +358,8 @@ var data = {
 			"reloadTime": 100,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the sniper",
-			"img": "res/items/weapons/sniper.png"
+			"img": "res/items/weapons/sniper.png",
+			"bulletImg": "res/large_bullet.png"
 		},
 		{
 			"name": "Sniper +3",
@@ -354,7 +375,8 @@ var data = {
 			"reloadTime": 100,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the sniper",
-			"img": "res/items/weapons/sniper.png"
+			"img": "res/items/weapons/sniper.png",
+			"bulletImg": "res/large_bullet.png"
 		},
 		{
 			"name": "Sniper +4",
@@ -370,7 +392,8 @@ var data = {
 			"reloadTime": 100,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the sniper",
-			"img": "res/items/weapons/sniper.png"
+			"img": "res/items/weapons/sniper.png",
+			"bulletImg": "res/large_bullet.png"
 		},
 		{
 			"name": "Sniper +5",
@@ -386,7 +409,8 @@ var data = {
 			"reloadTime": 70,
 			"type": "Main Weapon",
 			"description": "One shot one kill",
-			"img": "res/items/weapons/sniper.png"
+			"img": "res/items/weapons/sniper.png",
+			"bulletImg": "res/large_bullet.png"
 		},
 		{
 			"name": "Minigun",
@@ -402,7 +426,8 @@ var data = {
 			"reloadTime": 250,
 			"type": "Main Weapon",
 			"description": "A extremely fast but very low damaging weapon",
-			"img": "res/items/weapons/minigun.png"
+			"img": "res/items/weapons/minigun.png",
+			"bulletImg": "res/medium_bullet.png"
 		},
 		{
 			"name": "Minigun +1",
@@ -418,7 +443,8 @@ var data = {
 			"reloadTime": 250,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the minigun",
-			"img": "res/items/weapons/minigun.png"
+			"img": "res/items/weapons/minigun.png",
+			"bulletImg": "res/medium_bullet.png"
 		},
 		{
 			"name": "Minigun +2",
@@ -434,7 +460,8 @@ var data = {
 			"reloadTime": 250,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the minigun",
-			"img": "res/items/weapons/minigun.png"
+			"img": "res/items/weapons/minigun.png",
+			"bulletImg": "res/medium_bullet.png"
 		},
 		{
 			"name": "Minigun +3",
@@ -450,7 +477,8 @@ var data = {
 			"reloadTime": 250,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the minigun",
-			"img": "res/items/weapons/minigun.png"
+			"img": "res/items/weapons/minigun.png",
+			"bulletImg": "res/medium_bullet.png"
 		},
 		{
 			"name": "Minigun +4",
@@ -466,7 +494,8 @@ var data = {
 			"reloadTime": 250,
 			"type": "Main Weapon",
 			"description": "an upgraded version of the minigun",
-			"img": "res/items/weapons/minigun.png"
+			"img": "res/items/weapons/minigun.png",
+			"bulletImg": "res/medium_bullet.png"
 		},
 		{
 			"name": "Minigun +5",
@@ -482,7 +511,8 @@ var data = {
 			"reloadTime": 200,
 			"type": "Main Weapon",
 			"description": "Use it, It's kinda OP!",
-			"img": "res/items/weapons/minigun.png"
+			"img": "res/items/weapons/minigun.png",
+			"bulletImg": "res/medium_bullet.png"
 		},
 	],
 	"hats": [

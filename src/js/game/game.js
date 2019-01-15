@@ -57,6 +57,7 @@ function Game(){
       }
 
       if(hit){
+        this.particleSystems.push(new SpitterBallExplsion(this.enemyBullets[i].pos.x, this.enemyBullets[i].pos.y, this.enemyBullets[i].vel.heading()));
         this.enemyBullets.splice(i,1);
       }
     }
@@ -91,6 +92,9 @@ function Game(){
       for (j = 0; j < this.bullets.length; j++) {
         if (detectCollisionPointRect(this.bullets[j], this.enemies[i])) {
           this.particleSystems.push(new EnemyHitEffect(this.bullets[j].pos.x, this.bullets[j].pos.y, this.bullets[j].vel.heading(), this.bullets[j].dmg));
+          if(this.bullets[j].img === bullets["crystal"]){
+            this.particleSystems.push(new CrystalBulletExplosion(this.bullets[j].pos.x, this.bullets[j].pos.y, this.bullets[j].vel.heading()));
+          }
           this.bullets[j].hit(this.enemies[i]);
           this.bullets.splice(j, 1);
         }
